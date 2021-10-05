@@ -6,6 +6,7 @@ import { ButtonComponent } from './button/button.component';
 import { WarningsTableComponent } from './warnings-table/warnings-table.component';
 import { NurseDropdownComponent } from './nurse-dropdown/nurse-dropdown.component';
 import { HeaderComponent } from './header/header.component';
+import { GanntChartComponent } from './gannt-chart/gannt-chart.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { HeaderComponent } from './header/header.component';
     ButtonComponent,
     WarningsTableComponent,
     NurseDropdownComponent,
-    HeaderComponent
+    HeaderComponent,
+    GanntChartComponent
   ],
   imports: [
     BrowserModule
