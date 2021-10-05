@@ -1,18 +1,28 @@
 <div class="dropdown">
-    <button onclick="nurseList.style.display='block', startTime.style.display='none'" class="dropbtn">Nurses</button>
+    <button onclick="nurseList.style.display='block', startTime.style.display='none', endTime.style.display='none'" class="dropbtn">Nurses</button>
     <div id="nurseList" class="dropdown-content">
         <a href="#">Eyvel</a>
         <a href="#">Radney</a>
         <a href="#">Nurse Joy</a>
     </div>
 
-    <button onclick="startTime.style.display='block', nurseList.style.display='none'" class="dropbtn">Start time</button>
+    <button onclick="startTime.style.display='block', nurseList.style.display='none', endTime.style.display='none'" class="dropbtn">Start time</button>
     <div id="startTime" class="dropdown-content">
         <a href="#">7:00am</a>
         <a href="#">8:00am</a>
         <a href="#">9:00am</a>
         <a href="#">10:00am</a>
         <a href="#">11:00am</a>
+        <a href="#">...</a>
+    </div>
+
+    <button onclick="endTime.style.display='block', nurseList.style.display='none', startTime.style.display='none'" class="dropbtn">End time</button>
+    <div id="endTime" class="dropdown-content">
+        <a href="#">6:00pm</a>
+        <a href="#">7:00pm</a>
+        <a href="#">8:00pm</a>
+        <a href="#">9:00pm</a>
+        <a href="#">10:00pm</a>
         <a href="#">...</a>
     </div>
 </div> 
