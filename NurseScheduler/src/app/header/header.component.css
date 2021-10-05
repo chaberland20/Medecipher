@@ -1,0 +1,15 @@
+.header_container{
+    display: grid;
+}
+  
+.buttons{
+    grid-column: 95 / 100;
+    grid-row: 1;
+    padding: 0px;
+}
+
+.warnings_table{
+    grid-column: 100 / 100;
+    grid-row: 1;
+    padding: 0px;
+}

@@ -1,0 +1,88 @@
+.button_container{
+    display: grid;
+}
+  
+.button1{
+    grid-column: 1;
+    grid-row: 1;
+    padding: 3px;
+}
+
+.button2{
+    grid-column: 1;
+    grid-row: 2;
+    padding: 3px;
+}
+
+.addShiftButton, .delShiftButton {
+
+    border: 4px;
+    line-height: 2.5;
+    padding: 0 30px;
+    font-size: 1rem;
+    width: 143px;
+    height: 66.5px;
+    text-align: center;
+    color: #fff;
+    text-shadow: 3px 3px 3px #000;
+    border-radius: 10px;
+    background-color: #2980B9;
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);   
+}
+
+.addShiftButton:hover, .delShiftButton:hover {
+    background-color: #0c588b;
+}
+
+.addShiftButton:active, .delShiftButton:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: rgb(0, 0, 0);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+ 
