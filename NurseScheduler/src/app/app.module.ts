@@ -8,6 +8,8 @@ import { WarningsTableComponent } from './warnings-table/warnings-table.componen
 import { NurseDropdownComponent } from './nurse-dropdown/nurse-dropdown.component';
 import { HeaderComponent } from './header/header.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { GanntChartComponent } from './gannt-chart/gannt-chart.component';
+import { CalendarHeadingComponent } from './calendar-heading/calendar-heading.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { CalendarComponent } from './calendar/calendar.component';
     WarningsTableComponent,
     NurseDropdownComponent,
     HeaderComponent,
-    CalendarComponent
+    CalendarComponent,
+    GanntChartComponent,
+    CalendarHeadingComponent
   ],
   imports: [
     BrowserModule,

@@ -11,4 +11,5 @@ export class AppComponent {
   public value: Date = new Date ();
   public multiSelect: Boolean = true;
   constructor () {}
+  title = 'NurseScheduler';
 }

@@ -2,9 +2,9 @@
 
     <div id="addShiftModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="addShiftModal.style.display = 'none'">&times;</span>
+            <span class="close" onclick="addShiftModal.style.display='none',addShiftDropdown.style.display='none'">&times;</span>
             <p>This button should allow the user to add a nurse shift.</p>
-            <app-nurse-dropdown></app-nurse-dropdown>
+            <app-nurse-dropdown id="addShiftDropdown"></app-nurse-dropdown>
         </div>
     </div>
 
