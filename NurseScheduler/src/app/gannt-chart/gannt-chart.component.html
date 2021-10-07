@@ -53,6 +53,12 @@
     <span></span>
     <span></span>
     </div>
+    <!-- <div class='chart-row' *ngFor="let nurse of nurses">
+        <div class="chart-row-item" [style.background-color]="getColor(nurse.type)" style='color:white'>{{nurse.type}}</div>
+        <ul class="chart-row-bars">
+            <li class="chart-li-item" [style.background-color]="getColor(nurse.type)" style='color:white' style='grid-column:{{nurse.shift}}'>{{nurse.name}}</li>
+        </ul>
+    </div> -->
     <div class='chart-row' *ngFor="let nurse of nurses">
         <div class="chart-row-item" [style.background-color]="getColor(nurse.type)" style='color:white'>{{nurse.type}}</div>
         <ul class="chart-row-bars">
