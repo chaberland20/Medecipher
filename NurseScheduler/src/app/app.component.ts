@@ -6,9 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Experiment';
-  public minDate: Date = new Date ("05/07/2017");
-  public maxDate: Date = new Date ("08/27/2017");
-  public value: Date = new Date ("05/16/2017");
+  public minDate: Date = new Date (new Date().setFullYear(new Date().getFullYear() - 1));
+  public maxDate: Date = new Date (new Date().setFullYear(new Date().getFullYear() + 1));
+  public value: Date = new Date ();
+  public multiSelect: Boolean = true;
   constructor () {}
 }
