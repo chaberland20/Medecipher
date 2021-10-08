@@ -24,7 +24,10 @@ export class GanntChartComponent implements OnInit {
   getShiftLength(nurseShift: Array<number>){
     return nurseShift
   }
-  constructor() { }
+  public date: Date = new Date(Date.now());
+  constructor() { 
+   
+   }
   ngOnInit(): void {
   }
 }

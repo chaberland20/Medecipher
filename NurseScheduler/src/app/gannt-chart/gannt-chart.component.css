@@ -9,6 +9,16 @@
       margin: 0 auto;
       padding: 50px;      
   }
+  .date-heading {
+    background-color: #DCDCDC;
+    display: flex; 
+    justify-content: center;
+    border-top: 2px solid #000;
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+    height: 35px;
+    font-size:x-large;
+  }
   .chart {
       display: grid;
       border: 2px solid #000;
