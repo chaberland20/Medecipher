@@ -8,6 +8,7 @@ import { Nurse } from '../Nurse';
 })
 export class GanntChartComponent implements OnInit {
   nurses: Nurse[] = NURSES
+  
   getColor(nurseType: string) { (2)
     switch (nurseType) {
       case 'RN':
