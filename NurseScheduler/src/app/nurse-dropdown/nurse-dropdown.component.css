@@ -19,6 +19,11 @@
     position: relative;
     display: inline-block;
   }
+
+  #dropdown {
+    width: 125px;
+    text-align: center;
+  }
   
   /* Dropdown Content (Hidden by Default) */
   .dropdown-content {
