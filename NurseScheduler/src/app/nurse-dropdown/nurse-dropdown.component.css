@@ -1,50 +1,16 @@
-  /* Dropdown Button */
-  .dropbtn {
-    background-color: #3498DB;
-    color: white;
-    padding: 16px 16px;
-    font-size: 16px;
-    border: 5px 15px;
-    border-color: #000000;
-    cursor: pointer;
-  }
-  
-  /* Dropdown button on hover & focus */
-  .dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
-  }
-  
-  /* The container <div> - needed to position the dropdown content */
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-
-  #dropdown {
-    width: 125px;
+/* Properties that are the same for each dropdown */
+  select {
+    font-size: 15px;
+    padding: 6px 6px 6px 6px;
     text-align: center;
   }
   
-  /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+  /* Nurse select properties */
+  #name-dropdown {
+    width: 175px;
   }
-  
-  /* Links inside the dropdown */
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+
+  /* Time select properties */
+  #time-dropdown {
+    width: 125px;
   }
-  
-  /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #ddd}
-  
-  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-  .show {display:block;} 
