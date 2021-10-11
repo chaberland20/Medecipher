@@ -8,6 +8,7 @@ import { Nurse } from '../Nurse';
 })
 export class GanntChartComponent implements OnInit {
   nurses: Nurse[] = NURSES
+  
   getColor(nurseType: string) { (2)
     switch (nurseType) {
       case 'RN':
@@ -23,7 +24,10 @@ export class GanntChartComponent implements OnInit {
   getShiftLength(nurseShift: Array<number>){
     return nurseShift
   }
-  constructor() { }
+  public date: Date = new Date(Date.now());
+  constructor() { 
+   
+   }
   ngOnInit(): void {
   }
 }

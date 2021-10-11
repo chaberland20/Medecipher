@@ -24,3 +24,15 @@ export const NURSES= [
         shift: "1/13"
     }
 ]
+
+export const TYPES= [
+    {
+        type: 'CN'
+    },
+    {
+        type:'CNA'
+    },
+    {
+        type: 'RN'
+    }
+]

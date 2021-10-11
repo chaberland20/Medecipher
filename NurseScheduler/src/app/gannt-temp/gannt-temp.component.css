@@ -9,16 +9,7 @@
       margin: 0 auto;
       padding: 50px;      
   }
-  .date-heading {
-    background-color: #DCDCDC;
-    display: flex; 
-    justify-content: center;
-    border-top: 2px solid #000;
-    border-left: 2px solid #000;
-    border-right: 2px solid #000;
-    height: 35px;
-    font-size:x-large;
-  }
+ 
   .chart {
       display: grid;
       border: 2px solid #000;
@@ -37,14 +28,14 @@
     color:  #fff;
     background-color:  #708090 !important;
     border-bottom: 2px solid #000; 
-    grid-template-columns: 50px repeat(24, 1fr);
+    grid-template-columns: 50px repeat(12, 1fr);
   }
   .chart-lines {
     position: absolute;
     height: 100%;
     width: 100%;
     background-color: transparent;
-    grid-template-columns: 50px repeat(24, 1fr);
+    grid-template-columns: 50px repeat(12, 1fr);
   }
   .chart-period > span {    
     text-align: center;
@@ -57,6 +48,7 @@
     display: block;
     border-right: 1px solid rgba(0, 0, 0, 0.3);
   }
+ 
   .chart-row-item {
     background-color:#808080;
     border: 1px solid  #000;
@@ -67,12 +59,13 @@
     font-weight: bold;
     text-align: center;
   } 
+
   .chart-row-bars {
     list-style: none;
     display: grid;
     padding: 15px 0;
     margin: 0;
-    grid-template-columns: repeat(24, 1fr);
+    grid-template-columns: repeat(12, 1fr);
     grid-gap: 10px 0;
     border-bottom: 1px solid  #000;
   }
@@ -88,4 +81,36 @@
     position: relative;
     cursor: pointer;
     border-radius: 15px;
+  }
+  ul .chart-li-one {
+    grid-column: 1/2; 
+    background-color:#588BAE;
+  }
+  ul .chart-li-two-a {
+    grid-column: 2/2; 
+    background-color: #0080FF;
+  }
+  ul .chart-li-two-b {
+    grid-column: 2/4; 
+    background-color:#4682B4;
+  } 
+  ul .chart-li-three {
+    grid-column: 3/5; 
+    background-color:#57A0D3;
+  }
+  ul .chart-li-four {
+    grid-column: 3/9; 
+    background-color:#0E4D92;
+  }
+  ul .chart-li-five {
+    grid-column: 7/10; 
+    background-color:#4F97A3;
+  }
+  ul .chart-li-six {
+    grid-column: 10/12; 
+    background-color:#73C2FB;
+  }
+  ul .chart-li-seven {
+    grid-column: 12/12; 
+    background-color:#0080FF;
   }
