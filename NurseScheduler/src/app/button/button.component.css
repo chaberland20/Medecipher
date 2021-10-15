@@ -1,16 +1,16 @@
 .button_container{
     display: grid;
 }
-  
+
 .button1{
-    grid-column: 1;
     grid-row: 1;
+    grid-column: 1;
     padding: 3px;
 }
 
 .button2{
-    grid-column: 1;
     grid-row: 2;
+    grid-column: 1;
     padding: 3px;
 }
 

@@ -1,15 +1,15 @@
 .header_container{
     display: grid;
 }
-  
-.buttons{
-    grid-column: 95 / 100;
+
+.week-and-warnings{
     grid-row: 1;
-    padding: 0px;
+    grid-column: 2 / 100;
+    padding: 1px;
 }
 
-.warnings_table{
-    grid-column: 100 / 100;
+.buttons{
     grid-row: 1;
-    padding: 0px;
+    grid-column: 3 / 100;
+    padding-top: 73px;
 }

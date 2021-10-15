@@ -1,13 +1,13 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;    
+    box-sizing: border-box;
   }
   .container {
       max-width: 1200px;
       min-width: 650px;
       margin: 0 auto;
-      padding: 50px;      
+      padding: 3px;      
   }
   .date-heading {
     background-color: #DCDCDC;
