@@ -11,7 +11,7 @@
   }
 
   /* Time select properties */
-  #time-dropdown {
+  #time-dropdown, #type-dropdown {
     width: 125px;
   }
 
