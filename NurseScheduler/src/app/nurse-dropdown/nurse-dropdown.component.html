@@ -1,64 +1,33 @@
-<select name="nurse-select" size="1" id="name-dropdown">
-    <option value="">- Nurse name -</option>
-    <option value="Eyvel">Eyvel</option>
-    <option value="Finn">Finn</option>
-    <option value="Radney">Radney</option>
-    <option value="Tanya">Tanya</option>
-    <option value="V">Very, very, very, very, very long name</option>
-</select>
+<div class = "dropdown-container">
 
-<select name="start-time-select" size="1" id="time-dropdown">
-    <option value="">- Start time -</option>
-    <option value="7:00am">7:00am</option>
-    <option value="8:00am">8:00am</option>
-    <option value="9:00am">9:00am</option>
-    <option value="10:00am">10:00am</option>
-    <option value="11:00am">11:00am</option>
-    <option value="12:00am">12:00am</option>
-    <option value="1:00pm">1:00pm</option>
-    <option value="2:00pm">2:00pm</option>
-    <option value="3:00pm">3:00pm</option>
-    <option value="4:00pm">4:00pm</option>
-    <option value="5:00pm">5:00pm</option>
-    <option value="6:00pm">6:00pm</option>
-    <option value="7:00pm">7:00pm</option>
-    <option value="8:00pm">8:00pm</option>
-    <option value="9:00pm">9:00pm</option>
-    <option value="10:00pm">10:00pm</option>
-    <option value="11:00pm">11:00pm</option>
-    <option value="12:00pm">12:00pm</option>
-    <option value="1:00am">1:00am</option>
-    <option value="2:00am">2:00am</option>
-    <option value="3:00am">3:00am</option>
-    <option value="4:00am">4:00am</option>
-    <option value="5:00am">5:00am</option>
-    <option value="6:00am">6:00am</option>
-</select>
+    <select name="type-select" size="1" id="type-dropdown" type="select">
+        <option value="">- Nurse type -</option>
+        <option value="CN">CN</option>
+        <option value="CNA">CNA</option>
+        <option value="RN">RN</option>
+    </select>
+
+    <select name="name-select" size="1" id="name-dropdown" type="select">
+        <option value="">- Nurse name -</option>
+        <option value="Eyvel">Eyvel</option>
+        <option value="Finn">Finn</option>
+        <option value="Radney">Radney</option>
+        <option value="Tanya">Tanya</option>
+    </select>
     
-<select name="end-time-select" size="1" id="time-dropdown">
-    <option value="">- End time -</option>
-    <option value="7:00am">7:00am</option>
-    <option value="8:00am">8:00am</option>
-    <option value="9:00am">9:00am</option>
-    <option value="10:00am">10:00am</option>
-    <option value="11:00am">11:00am</option>
-    <option value="12:00am">12:00am</option>
-    <option value="1:00pm">1:00pm</option>
-    <option value="2:00pm">2:00pm</option>
-    <option value="3:00pm">3:00pm</option>
-    <option value="4:00pm">4:00pm</option>
-    <option value="5:00pm">5:00pm</option>
-    <option value="6:00pm">6:00pm</option>
-    <option value="7:00pm">7:00pm</option>
-    <option value="8:00pm">8:00pm</option>
-    <option value="9:00pm">9:00pm</option>
-    <option value="10:00pm">10:00pm</option>
-    <option value="11:00pm">11:00pm</option>
-    <option value="12:00pm">12:00pm</option>
-    <option value="1:00am">1:00am</option>
-    <option value="2:00am">2:00am</option>
-    <option value="3:00am">3:00am</option>
-    <option value="4:00am">4:00am</option>
-    <option value="5:00am">5:00am</option>
-    <option value="6:00am">6:00am</option>
-</select>
+    <select name="time-select" size="1" id="time-dropdown" type="select">
+        <option value="">- Shift type -</option>
+        <option value="1900_08HR">19:00 - 8hr</option>
+        <option value="0700_12HR">07:00 - 12hr</option>
+        <option value="0900_12HR">09:00 - 12hr</option>
+        <option value="1100_12HR">11:00 - 12hr</option>
+        <option value="1300_12HR">13:00 - 12hr</option>
+        <option value="1500_12HR">15:00 - 12hr</option>
+        <option value="1900_12HR">19:00 - 12hr</option>
+    </select>
+
+    <button class="confirm" type="button" onclick="">
+        Confirm Shift
+    </button>
+
+</div>
