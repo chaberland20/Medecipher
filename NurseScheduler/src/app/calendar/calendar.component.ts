@@ -6,9 +6,8 @@ import {Component} from '@angular/core';
 })
  
 export class CalendarComponent {
-  public minDate: Date = new Date (new Date().setFullYear(new Date().getFullYear() - 1));
-  public maxDate: Date = new Date (new Date().setFullYear(new Date().getFullYear() + 1));
-  public value: Date = new Date ();
+  public today: Date = new Date ();
+  public values: Date [] = [this.today]  
   public multiSelect: Boolean = true;
   constructor() { }
 }
