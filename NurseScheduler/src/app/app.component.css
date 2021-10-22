@@ -1,0 +1,14 @@
+.page_container{
+    display: grid;
+    width: 70%;
+}
+
+.sidebar{
+    grid-column: 1 / 2;
+    grid-row: 1;
+}
+
+.gannt-chart{
+    grid-column: 2 / 2;
+    grid-row: 1;  
+}
