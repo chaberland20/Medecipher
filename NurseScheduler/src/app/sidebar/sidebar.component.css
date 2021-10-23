@@ -1,0 +1,23 @@
+.header_container{
+    display: grid;
+}
+
+.calendar{
+    grid-column: 1;
+    grid-row: 1 / 3;
+    padding: 10px 10px 10px 10px;
+    margin-left: 2px;
+}
+
+.warnings_table{
+    grid-column: 1;
+    grid-row: 2 / 3;
+    padding: 10px 10px 10px 10px;
+    margin-left: 10px;
+}
+
+.buttons{
+    grid-column: 1;
+    grid-row: 2 / 3;
+    padding: 10px 10px 10px 10px;
+}
