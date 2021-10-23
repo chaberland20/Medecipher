@@ -1,21 +1,22 @@
 import { Component } from '@angular/core';
+import { NURSES } from '../mock-staff';
+import { Nurse } from '../Nurse';
 
 @Component({
   selector: 'app-nurse-dropdown',
   templateUrl: './nurse-dropdown.component.html',
   styleUrls: ['./nurse-dropdown.component.css']
 })
+
 export class NurseDropdownComponent {
 
-  constructor() { }
+  nurses: Nurse[] = NURSES
+  selectedType: string = "";
 
-  toggleDropdown() {
-    let dropdown:any = <any>document.getElementById("nurseList")
-    if(dropdown.style.display == "none")
-      dropdown.style.display = "block";
-    else
-      dropdown.style.display = "none";
-      
-  }
+    //event handler for the select element's change event
+    selectChangeHandler (event: any) {
+      //update the ui
+      this.selectedType = event.target.value;
+    }
 
 }

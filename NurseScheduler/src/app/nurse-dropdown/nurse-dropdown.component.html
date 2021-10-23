@@ -1,20 +1,29 @@
 <div class = "dropdown-container">
 
-    <select class="select" name="type-select" id="type-dropdown">
+    <!-- Nurse type dropdown -->
+    <select class="select" id="type-dropdown" ng-model="selectedType" (change)="selectChangeHandler($event)" required>
         <option value="">- Nurse type -</option>
         <option value="CN">CN</option>
         <option value="CNA">CNA</option>
         <option value="RN">RN</option>
     </select>
 
+
+    <!-- Nurse name dropdown -->
     <select class="select" name="name-select" id="name-dropdown">
         <option value="">- Nurse name -</option>
-        <option value="Eyvel">Eyvel</option>
-        <option value="Finn">Finn</option>
-        <option value="Radney">Radney</option>
-        <option value="Tanya">Tanya</option>
+
+        <!-- Logic for displaying nurses of the selected type -->
+        <ng-container *ngFor="let nurse of nurses">
+            <ng-container *ngIf="nurse.type == selectedType">
+                <option value="nurse">{{nurse.name}}</option>
+            </ng-container>
+        </ng-container>
+
     </select>
+
     
+    <!-- Shift duration dropdown -->
     <select class="select" name="time-select" id="time-dropdown">
         <option value="">- Shift type -</option>
         <option value="1900_08HR">19:00 - 8hr</option>
@@ -26,6 +35,8 @@
         <option value="1900_12HR">19:00 - 12hr</option>
     </select>
 
+
+    <!-- Adds shift to the current schedule -->
     <button class="confirm" type="button" onclick="">
         Confirm Shift
     </button>
