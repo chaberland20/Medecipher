@@ -1,7 +1,7 @@
 <div class = "dropdown-container">
 
     <!-- Nurse type dropdown -->
-    <select class="select" id="type-dropdown" ng-model="selectedType" (change)="selectChangeHandler($event)" required>
+    <select class="select" id="type-dropdown" (change)="selectChangeHandler($event)">
         <option value="">- Nurse type -</option>
         <option value="CN">CN</option>
         <option value="CNA">CNA</option>

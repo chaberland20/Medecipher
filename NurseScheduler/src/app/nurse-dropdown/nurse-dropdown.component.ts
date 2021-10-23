@@ -13,9 +13,8 @@ export class NurseDropdownComponent {
   nurses: Nurse[] = NURSES
   selectedType: string = "";
 
-    //event handler for the select element's change event
+    // update type 
     selectChangeHandler (event: any) {
-      //update the ui
       this.selectedType = event.target.value;
     }
 
