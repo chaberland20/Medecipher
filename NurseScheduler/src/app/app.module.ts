@@ -12,6 +12,7 @@ import { GanntChartComponent } from './gannt-chart/gannt-chart.component';
 import { CalendarHeadingComponent } from './calendar-heading/calendar-heading.component';
 import { GanntTempComponent } from './gannt-temp/gannt-temp.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   ],
   imports: [
     BrowserModule,
-    CalendarModule
+    CalendarModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
