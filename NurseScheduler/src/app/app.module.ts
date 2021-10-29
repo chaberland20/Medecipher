@@ -13,6 +13,7 @@ import { CalendarHeadingComponent } from './calendar-heading/calendar-heading.co
 import { GanntTempComponent } from './gannt-temp/gannt-temp.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { WeekCopyComponent } from './week-copy/week-copy.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     GanntChartComponent,
     CalendarHeadingComponent,
     GanntTempComponent,
-    SidebarComponent
+    SidebarComponent,
+    WeekCopyComponent
   ],
   imports: [
     BrowserModule,
