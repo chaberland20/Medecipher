@@ -27,7 +27,7 @@ export class NurseScheduleService {
       }
     );
     }
-    
+
   }
 
   export class NurseSched{

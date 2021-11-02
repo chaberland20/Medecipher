@@ -3,6 +3,7 @@ import { NURSES } from '../mock-staff';
 import { Nurse } from '../Nurse';
 import { Type } from '../Type';
 import { TYPES } from '../mock-staff';
+import { NurseScheduleService, NurseSched } from '../nurse-schedule.service';
 @Component({
   selector: 'app-gannt-chart',
   templateUrl: './gannt-chart.component.html',
@@ -38,13 +39,24 @@ export class GanntChartComponent implements OnInit {
 
     }
   }
+
+  // populateChart(type: userArray){
+  //   for (let index: number = 0; index < userArray.length; ++index){
+  //     rn_id = userArray
+  //     [index].RN_ID
+  //   }
+  //   var str = "The rain in SPAIN stays mainly in the plain"; 
+  //   var res = str.match(/ain/g);
+    
+
+  // }
+
+
   getShiftLength(nurseShift: Array<number>){
     return nurseShift
   }
   public date: Date = new Date(Date.now());
-  constructor() { 
-   
-   }
+  constructor() {}
   ngOnInit(): void {
   }
 }
