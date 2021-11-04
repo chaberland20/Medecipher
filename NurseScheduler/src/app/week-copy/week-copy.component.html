@@ -10,12 +10,8 @@
         <div class="modal-content">
             <span class="close" onclick="copyModal.style.display = 'none'">&times;</span>
             <p>How many weeks forward would you like to copy the current week's schedule?</p>
-            <select name="select-num-weeks" id="week-num-dropdown">
-                <option value="-1">- # of Weeks -</option>
-                <option value="1">1</option>
-                <option value="1">2</option>
-                <option value="1">3</option>
-            </select>
+            <input #box (keyup.enter)="onEnter(box.value)">
+            <p>{{value}}</p> <!-- can remove this line later, keep for debugging -->
         </div>
     </div>
 
