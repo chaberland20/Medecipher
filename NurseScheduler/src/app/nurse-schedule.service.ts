@@ -30,7 +30,9 @@ export class NurseScheduleService {
 
     getSched() { 
       //console.log(this.userArray)
-      return this.userArray; }
+      this.userArray.push(new NurseSched("test run_id", "test date", "test rn_id", "test shift"))
+      return this.userArray;
+    }
   
     getNurseIds(): string[] {
       let ids: string[] = [];
@@ -40,6 +42,7 @@ export class NurseScheduleService {
 
       return ids;
     }
+    
   }
 
   export class NurseSched{
