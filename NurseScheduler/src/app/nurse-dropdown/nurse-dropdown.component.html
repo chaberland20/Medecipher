@@ -9,20 +9,6 @@
     </select>
 
 
-    <!-- Nurse name dropdown -->
-    <select class="select" name="name-select" id="name-dropdown">
-        <option value="">- Nurse name -</option>
-
-        <!-- Logic for displaying nurses of the selected type -->
-        <ng-container *ngFor="let nurse of nurses">
-            <ng-container *ngIf="nurse.type == selectedType">
-                <option value="nurse">{{nurse.name}}</option>
-            </ng-container>
-        </ng-container>
-
-    </select>
-
-    
     <!-- Shift duration dropdown -->
     <select class="select" name="time-select" id="time-dropdown">
         <option value="">- Shift type -</option>
@@ -36,9 +22,23 @@
     </select>
 
 
+    <!-- Nurse name dropdown -->
+    <select class="select" name="name-select" id="name-dropdown">
+        <option value="">- Nurse name -</option>
+    
+        <!-- Logic for displaying nurses of the selected type -->
+        <ng-container *ngFor="let nurse of nurses">
+            <ng-container *ngIf="nurse.type == selectedType">
+                <option value="nurse">{{nurse.name}}</option>
+            </ng-container>
+        </ng-container>
+    
+    </select>
+
+
     <!-- Adds shift to the current schedule -->
     <button class="confirm" type="button" onclick="">
-        Confirm Shift
+        Confirm
     </button>
 
 </div>
