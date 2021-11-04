@@ -3,6 +3,8 @@ import { NURSES } from '../mock-staff';
 import { Nurse } from '../Nurse';
 import { Type } from '../Type';
 import { TYPES } from '../mock-staff';
+import { CalendarComponent } from '../calendar/calendar.component';
+
 @Component({
   selector: 'app-gannt-chart',
   templateUrl: './gannt-chart.component.html',
