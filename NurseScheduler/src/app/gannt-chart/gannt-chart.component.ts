@@ -4,7 +4,8 @@ import { NURSES } from '../mock-staff';
 import { Nurse } from '../Nurse';
 import { Type } from '../Type';
 import { TYPES } from '../mock-staff';
-import { NurseScheduleService, NurseSched } from '../nurse-schedule.service';
+import { CalendarComponent } from '../calendar/calendar.component';
+
 @Component({
   selector: 'app-gannt-chart',
   templateUrl: './gannt-chart.component.html',
@@ -13,7 +14,6 @@ import { NurseScheduleService, NurseSched } from '../nurse-schedule.service';
 export class GanntChartComponent implements OnInit {
   nurses: Nurse[] = NURSES
   types: Type[] = TYPES
-  sched: NurseSched[] = []
  
 
   
@@ -56,6 +56,6 @@ export class GanntChartComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    
+
   }
 }
