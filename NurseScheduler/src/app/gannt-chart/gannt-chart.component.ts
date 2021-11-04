@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NURSES } from '../mock-staff';
 import { Nurse } from '../Nurse';
 import { Type } from '../Type';
@@ -12,6 +13,8 @@ import { NurseScheduleService, NurseSched } from '../nurse-schedule.service';
 export class GanntChartComponent implements OnInit {
   nurses: Nurse[] = NURSES
   types: Type[] = TYPES
+  sched: NurseSched[] = []
+ 
 
   
   getColor(nurseType: string) { (2)
@@ -36,27 +39,23 @@ export class GanntChartComponent implements OnInit {
         return 'CN';
       default:
         return 'purple';
-
     }
   }
+ 
 
-  // populateChart(type: userArray){
-  //   for (let index: number = 0; index < userArray.length; ++index){
-  //     rn_id = userArray
-  //     [index].RN_ID
-  //   }
-  //   var str = "The rain in SPAIN stays mainly in the plain"; 
-  //   var res = str.match(/ain/g);
-    
 
-  // }
+ 
 
 
   getShiftLength(nurseShift: Array<number>){
     return nurseShift
   }
+
   public date: Date = new Date(Date.now());
+
   constructor() {}
+
   ngOnInit(): void {
+    
   }
 }
