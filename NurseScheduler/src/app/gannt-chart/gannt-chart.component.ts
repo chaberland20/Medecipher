@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
 import { NURSES } from '../mock-staff';
 import { Nurse } from '../Nurse';
 import { Type } from '../Type';
 import { TYPES } from '../mock-staff';
 import { CalendarComponent } from '../calendar/calendar.component';
+import { NurseSched, NurseScheduleService } from '../nurse-schedule.service';
 
 @Component({
   selector: 'app-gannt-chart',
@@ -14,6 +17,8 @@ import { CalendarComponent } from '../calendar/calendar.component';
 export class GanntChartComponent implements OnInit {
   nurses: Nurse[] = NURSES
   types: Type[] = TYPES
+  schedule: NurseSched[] = []
+  
  
 
   
@@ -53,9 +58,13 @@ export class GanntChartComponent implements OnInit {
 
   public date: Date = new Date(Date.now());
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  ngOnInit(): void {
-
+  ngOnInit(){
+    // let sched = new NurseScheduleService(this.http)
+    // for (let index = 1; index < sched.userArray.length-1; index++){
+    //   let row = sched.userArray[index]
+    //   console.log('index')
+    // }
   }
 }

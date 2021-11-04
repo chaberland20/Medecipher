@@ -8,7 +8,7 @@ import { HttpClient } from "@angular/common/http";
 
 export class NurseScheduleService {
   public userArray: NurseSched[] = [];
-  getSched(){return NurseSched;}
+  getSched(){return this.userArray;}
 
   constructor(private http: HttpClient) {
     this.http.get('assets/Nurse_Shifts.csv',
@@ -20,7 +20,7 @@ export class NurseScheduleService {
           let row = csvToRowArray[index].split(",");
           this.userArray.push(new NurseSched( row[0], row[1], row[2], row[3].trim()));
         }
-        console.log(this.userArray);
+        // console.log(this.userArray);
     },
       error => {
           console.log(error);

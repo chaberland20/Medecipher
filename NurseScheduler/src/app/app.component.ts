@@ -13,8 +13,10 @@ export class AppComponent implements OnInit{
   constructor (private http: HttpClient) {}
   ngOnInit(){
     let sched = new NurseScheduleService(this.http)
-    sched.getSched()
     
+    console.log(sched.userArray)
+    for (let index = 1; index < sched.userArray.length-1; index++){
+    }
   }
   title = 'NurseScheduler';
 }
