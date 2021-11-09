@@ -18,6 +18,8 @@ export class GanntChartComponent implements OnInit {
   nurses: Nurse[] = NURSES
   types: Type[] = TYPES
   schedule: NurseSched[] = []
+  testArray: NurseSched[] = []
+  
   
  
 
@@ -61,10 +63,21 @@ export class GanntChartComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(){
-    // let sched = new NurseScheduleService(this.http)
-    // for (let index = 1; index < sched.userArray.length-1; index++){
-    //   let row = sched.userArray[index]
-    //   console.log('index')
-    // }
+    let sched = new NurseScheduleService(this.http)
+    // console.log(sched)
+    console.log(sched.userArray)
+
+
+    for (let index = 1; index < sched.userArray.length-1; index++){
+      let row = sched.userArray[index]
+      // console.log('test loop');
+      this.testArray.push(row)
+    }
+    // console.log(this.testArray)
+    // sched.userArray.forEach(row => {
+    //   console.log(row);
+    //   })
+      
+
   }
 }

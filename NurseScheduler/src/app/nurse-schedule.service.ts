@@ -15,13 +15,17 @@ export class NurseScheduleService {
     .subscribe(
       data => {
         let csvToRowArray = data.split("\n");
-        for (let index = 1; index < csvToRowArray.length - 1; index++) {
+        for (let index = 0; index < csvToRowArray.length - 1; index++) {
           let row = csvToRowArray[index].split(",");
           this.userArray.push(new NurseSched( row[0], row[1], row[2], row[3].trim()));
+          // console.log(this.userArray[index])
         }
 
-        //console.log(this.userArray)
-        //console.log(this.userArray[4].rn_id);
+        console.log(this.userArray);
+        // console.log(this.userArray[4].rn_id);
+        this.userArray.forEach(row => {
+          console.log(row);
+          })
     },
       error => {
           console.log(error);
@@ -31,7 +35,7 @@ export class NurseScheduleService {
 
 
     getSched() { 
-      //console.log(this.userArray)
+      console.log(this.userArray)
       this.userArray.push(new NurseSched("test run_id", "test date", "test rn_id", "test shift"))
       return this.userArray;
     }
