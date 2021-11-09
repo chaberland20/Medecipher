@@ -21,7 +21,7 @@ export class NurseScheduleService {
           // console.log(this.userArray[index])
         }
 
-        console.log(this.userArray);
+        // console.log(this.userArray);
         // console.log(this.userArray[4].rn_id);
         this.userArray.forEach(row => {
           console.log(row);
