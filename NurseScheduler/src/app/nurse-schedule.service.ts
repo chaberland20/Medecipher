@@ -62,6 +62,7 @@ export class NurseScheduleService {
     getNurseIds(): string[] {
 
       let ids: string[] = [];
+      let num = 0; // num exists so we can skip the first nurse id, which is the header in our .csv file
 
       // read .csv and send schedule
       this.http.get('assets/Nurse_Shifts.csv',
@@ -78,10 +79,11 @@ export class NurseScheduleService {
           
           // extract and return list of ids
           this.userArray.forEach((s) => {
-            ids.push(s.rn_id)
+            if(num != 0 && !ids.includes(s.rn_id)) ids.push(s.rn_id)
+            else num += 1
           })
 
-          console.log("ids?", ids)
+          //console.log("ids?", ids)
           return ids;
 
       },
