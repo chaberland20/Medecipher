@@ -20,15 +20,17 @@ export class NurseDropdownComponent implements OnInit {
   constructor (private http: HttpClient) {}
 
   ngOnInit(): void {
-    // let scheduleService = new NurseScheduleService(this.http)
-    // this.schedule = scheduleService.getSched()
-    // this.nurseIds = scheduleService.getNurseIds()
+    let scheduleService = new NurseScheduleService(this.http)
+    this.schedule = scheduleService.getSched()
+    this.nurseIds = scheduleService.getNurseIds()
 
     // console.log(this.nurseIds)
-
+    console.log("~~~ NurseDropdown array ~~~")
+    console.log(this.schedule)
     /*this.nurseIds.forEach((id) => {
       console.log(id);
     });*/
+    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
   }
 
