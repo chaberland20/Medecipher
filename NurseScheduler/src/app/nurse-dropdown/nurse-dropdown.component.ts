@@ -24,14 +24,8 @@ export class NurseDropdownComponent implements OnInit {
     this.schedule = scheduleService.getSched()
     this.nurseIds = scheduleService.getNurseIds()
 
-    // console.log(this.nurseIds)
-    console.log("~~~ NurseDropdown array ~~~")
-    console.log(this.schedule)
-    /*this.nurseIds.forEach((id) => {
-      console.log(id);
-    });*/
-    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~")
-
+    console.log("NurseDropdown schedule:", this.schedule)
+    console.log("NurseDropdown ids:", this.nurseIds)
   }
 
 
