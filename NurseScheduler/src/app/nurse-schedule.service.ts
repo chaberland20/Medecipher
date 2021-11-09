@@ -60,7 +60,8 @@ export class NurseScheduleService {
   
     // returns list of nurse ids
     getNurseIds(): string[] {
-      let ids= new Set();
+
+      let ids: string[] = [];
 
       // read .csv and send schedule
       this.http.get('assets/Nurse_Shifts.csv',
@@ -77,7 +78,7 @@ export class NurseScheduleService {
           
           // extract and return list of ids
           this.userArray.forEach((s) => {
-            ids.add(s.rn_id)
+            ids.push(s.rn_id)
           })
 
           console.log("ids?", ids)
@@ -89,8 +90,7 @@ export class NurseScheduleService {
         }
       );         
 
-      // returns empty list if error occurs
-      ids.add("");
+      // returns empty list if error
       return ids;
     }
   }
