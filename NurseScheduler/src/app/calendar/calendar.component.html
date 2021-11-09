@@ -2,4 +2,5 @@
 <link href="https://cdn.syncfusion.com/ej2/ej2-buttons/styles/material.css" rel="stylesheet">
 <link href="https://cdn.syncfusion.com/ej2/ej2-popups/styles/material.css" rel="stylesheet" >
 <link href="https://cdn.syncfusion.com/ej2/ej2-calendars/styles/material.css" rel="stylesheet" >
-<ejs-calendar [value]='today' (renderDayCell)='disabledDate($event)'></ejs-calendar>
+<ejs-calendar [value]='today' (renderDayCell)='disabledDate($event)' (change)='onChange($event)'></ejs-calendar>
+<app-gannt-chart [item]="item"></app-gannt-chart>

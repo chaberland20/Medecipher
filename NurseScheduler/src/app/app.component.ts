@@ -1,5 +1,5 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { NurseSched, NurseScheduleService } from './nurse-schedule.service';
 
@@ -17,4 +17,7 @@ export class AppComponent implements OnInit{
     
   }
   title = 'NurseScheduler';
+  public today: Date = new Date ();
+  //currentItem = this.today;
+  @Input() item!: Date;
 }

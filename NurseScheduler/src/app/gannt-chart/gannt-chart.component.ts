@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NURSES } from '../mock-staff';
 import { Nurse } from '../Nurse';
 import { Type } from '../Type';
 import { TYPES } from '../mock-staff';
-import { CalendarComponent } from '../calendar/calendar.component';
+import { Data } from '@angular/router';
 
 @Component({
   selector: 'app-gannt-chart',
@@ -43,10 +43,9 @@ export class GanntChartComponent implements OnInit {
   getShiftLength(nurseShift: Array<number>){
     return nurseShift
   }
-  public date: Date = new Date(Date.now());
+  @Input() item!: Date;
   constructor() { 
-   
-   }
+  }
   ngOnInit(): void {
   }
 }
