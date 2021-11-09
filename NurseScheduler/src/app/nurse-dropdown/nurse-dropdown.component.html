@@ -24,13 +24,13 @@
 
     <!-- Nurse name dropdown -->
     <select class="select" name="name-select" id="name-dropdown">
-        <option value="">- Nurse name -</option>
+        <option value="">- Nurse id -</option>
     
         <!-- Logic for displaying nurses of the selected type -->
-        <ng-container *ngFor="let nurse of nurses">
-            <ng-container *ngIf="nurse.type == selectedType">
-                <option value="nurse">{{nurse.name}}</option>
-            </ng-container>
+        <ng-container *ngFor="let id of nurseIds">
+            <!-- <ng-container *ngIf="nurse.type == selectedType"> -->
+                <option value="id">{{id}}</option>
+            <!-- </ng-container> -->
         </ng-container>
     
     </select>

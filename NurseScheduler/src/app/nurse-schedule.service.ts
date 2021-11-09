@@ -33,7 +33,7 @@ export class NurseScheduleService {
     );
     }
 
-
+    // returns schedule info as an array
     getSched() { 
       // read .csv and send schedule
       this.http.get('assets/Nurse_Shifts.csv',
@@ -41,6 +41,8 @@ export class NurseScheduleService {
       .subscribe(
         data => {
           let csvToRowArray = data.split("\n");
+
+          // read .csv data into array
           for (let index = 0; index < csvToRowArray.length - 1; index++) {
             let row = csvToRowArray[index].split(",");
             this.userArray.push(new NurseSched( row[0], row[1], row[2], row[3].trim()));
@@ -56,15 +58,40 @@ export class NurseScheduleService {
       return this.userArray;
     }
   
+    // returns list of nurse ids
     getNurseIds(): string[] {
       let ids: string[] = [];
-      this.userArray.forEach((s) => {
-        ids.push(s.rn_id)
-      })
 
+      // read .csv and send schedule
+      this.http.get('assets/Nurse_Shifts.csv',
+      {responseType: 'text'})
+      .subscribe(
+        data => {
+          let csvToRowArray = data.split("\n");
+          
+          // read .csv data into array
+          for (let index = 0; index < csvToRowArray.length - 1; index++) {
+            let row = csvToRowArray[index].split(",");
+            this.userArray.push(new NurseSched( row[0], row[1], row[2], row[3].trim()));
+          }
+          
+          // extract and return list of ids
+          this.userArray.forEach((s) => {
+            ids.push(s.rn_id)
+          })
+
+          console.log("ids?", ids)
+          return ids;
+
+      },
+        error => {
+            console.log(error);
+        }
+      );         
+
+      // returns empty list if error
       return ids;
     }
-    
   }
 
   export class NurseSched{
