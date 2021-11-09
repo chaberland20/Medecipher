@@ -1,9 +1,21 @@
+<<<<<<< HEAD
 import { Component, Input, OnInit } from '@angular/core';
+=======
+import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+>>>>>>> bf50133593f99a262cbfed425ed45d308a202fc6
 import { NURSES } from '../mock-staff';
 import { Nurse } from '../Nurse';
 import { Type } from '../Type';
 import { TYPES } from '../mock-staff';
+<<<<<<< HEAD
 import { Data } from '@angular/router';
+=======
+import { CalendarComponent } from '../calendar/calendar.component';
+import { NurseSched, NurseScheduleService } from '../nurse-schedule.service';
+>>>>>>> bf50133593f99a262cbfed425ed45d308a202fc6
 
 @Component({
   selector: 'app-gannt-chart',
@@ -13,6 +25,11 @@ import { Data } from '@angular/router';
 export class GanntChartComponent implements OnInit {
   nurses: Nurse[] = NURSES
   types: Type[] = TYPES
+  schedule: NurseSched[] = []
+  testArray: NurseSched[] = []
+  
+  
+ 
 
   
   getColor(nurseType: string) { (2)
@@ -37,15 +54,45 @@ export class GanntChartComponent implements OnInit {
         return 'CN';
       default:
         return 'purple';
-
     }
   }
+ 
+
+
+ 
+
+
   getShiftLength(nurseShift: Array<number>){
     return nurseShift
   }
+<<<<<<< HEAD
   @Input() item!: Date;
   constructor() { 
   }
   ngOnInit(): void {
+=======
+
+  public date: Date = new Date(Date.now());
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(){
+    let sched = new NurseScheduleService(this.http)
+    // console.log(sched)
+    console.log(sched.userArray)
+
+
+    for (let index = 1; index < sched.userArray.length-1; index++){
+      let row = sched.userArray[index]
+      // console.log('test loop');
+      this.testArray.push(row)
+    }
+    // console.log(this.testArray)
+    // sched.userArray.forEach(row => {
+    //   console.log(row);
+    //   })
+      
+
+>>>>>>> bf50133593f99a262cbfed425ed45d308a202fc6
   }
 }

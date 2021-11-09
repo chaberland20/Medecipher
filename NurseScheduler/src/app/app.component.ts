@@ -12,9 +12,13 @@ export class AppComponent implements OnInit{
   
   constructor (private http: HttpClient) {}
   ngOnInit(){
-    let sched = new NurseScheduleService(this.http)
-    sched.getSched()
+    // let sched = new NurseScheduleService(this.http)
     
+    // console.log(sched.userArray)
+    
+    // for (let index = 1; index < sched.userArray.length-1; index++){
+    //   console.log(sched.userArray[index].rn_id)
+    // }
   }
   title = 'NurseScheduler';
   public today: Date = new Date ();
