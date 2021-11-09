@@ -21,9 +21,6 @@ export class GanntChartComponent implements OnInit {
   testArray: NurseSched[] = []
   
   
- 
-
-  
   getColor(nurseType: string) { (2)
     switch (nurseType) {
       case 'RN':
