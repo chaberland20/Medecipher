@@ -12,12 +12,13 @@ import { Nurse } from '../Nurse';
 
 export class NurseDropdownComponent implements OnInit {
 
-  nurses: Nurse[] = NURSES;
   selectedType: string = "";
   selectedShift: string = "";
   selectedId: string = "";
+
   schedule: NurseSched[] = [];  
   nurseIds: string[] = [];
+  shifts: string[] = [];
 
   constructor (private http: HttpClient) {}
 
@@ -25,9 +26,9 @@ export class NurseDropdownComponent implements OnInit {
     let scheduleService = new NurseScheduleService(this.http)
     this.schedule = scheduleService.getSched()
     this.nurseIds = scheduleService.getNurseIds()
+    this.shifts = scheduleService.getShifts()
 
-    //console.log("NurseDropdown schedule:", this.schedule)
-    //console.log("NurseDropdown ids:", this.nurseIds)
+    this.organizeShifts()
   }
 
 
@@ -51,6 +52,11 @@ export class NurseDropdownComponent implements OnInit {
     else if(id.search("DDRN") != -1) return "DDRN"
     else if(id.search("EDRN") != -1) return "EDRN"  // all nurse ids contain 'EDRN', so put this if statement last
     else return "N/A"
+  }
+
+  // TODO: sort shifts by duration/start time
+  organizeShifts() {
+
   }
 
   // ensures user has selected all shift parameters

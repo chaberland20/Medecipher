@@ -13,6 +13,13 @@
     <!-- Shift duration dropdown -->
     <select class="select" name="time-select" id="time-dropdown" (change)="updateSelectedShift($event)">
         <option value="">- Shift type -</option>
+
+        <!-- Logic for displaying shifts -->
+        <ng-container *ngFor="let shift of shifts">
+            <option value="shift">{{shift}}</option>
+        </ng-container>
+
+        <!--
         <option value="1900_08HR">19:00 - 8hr</option>
         <option value="0700_12HR">07:00 - 12hr</option>
         <option value="0900_12HR">09:00 - 12hr</option>
@@ -20,6 +27,7 @@
         <option value="1300_12HR">13:00 - 12hr</option>
         <option value="1500_12HR">15:00 - 12hr</option>
         <option value="1900_12HR">19:00 - 12hr</option>
+        -->
     </select>
 
 
