@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -21,7 +21,7 @@ export class GanntChartComponent implements OnInit {
   testArray: NurseSched[] = []
   
   
- 
+  @Input() childMessage: any | undefined;
 
   
   getColor(nurseType: string) { (2)
@@ -78,6 +78,5 @@ export class GanntChartComponent implements OnInit {
     //   console.log(row);
     //   })
       
-
   }
 }

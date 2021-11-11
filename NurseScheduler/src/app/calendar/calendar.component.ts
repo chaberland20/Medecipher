@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Output, EventEmitter} from '@angular/core';
 import { Calendar } from '@syncfusion/ej2-calendars';
  
 @Component ({
@@ -16,4 +16,13 @@ export class CalendarComponent {
         args.isDisabled = true;
     }
   }
+
+  onChange(args: any): any{
+    //console.log(args.value); //this is the date value that is getting updated, need to send it to gant chart
+    this.today = args.value;
+    this.item = args.value;
+    this.messageEvent.emit(this.item)
+  }
+  item = this.today;
+  @Output() messageEvent = new EventEmitter<any>();
 }
