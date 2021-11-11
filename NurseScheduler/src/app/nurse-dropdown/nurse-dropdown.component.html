@@ -15,8 +15,8 @@
         <option value="">- Shift type -</option>
 
         <!-- Logic for displaying shifts -->
-        <ng-container *ngFor="let shift of shifts">
-            <option value="shift">{{shift}}</option>
+        <ng-container *ngFor="let shiftType of shiftTypes">
+            <option value="shiftType">{{shiftType}}</option>
         </ng-container>
 
     </select>
@@ -37,7 +37,7 @@
 
 
     <!-- Adds shift to the current schedule -->
-    <button class="confirm" type="button" onclick="verifyShift()">
+    <button class="confirm" type="button" id="confirm" onclick="alert(`Confirm button clicked!`)">
         Confirm
     </button>
 

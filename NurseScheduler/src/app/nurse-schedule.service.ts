@@ -18,14 +18,8 @@ export class NurseScheduleService {
         for (let index = 0; index < csvToRowArray.length - 1; index++) {
           let row = csvToRowArray[index].split(",");
           this.userArray.push(new NurseSched( row[0], row[1], row[2], row[3].trim()));
-          // console.log(this.userArray[index])
         }
 
-        //console.log(this.userArray);
-        // console.log(this.userArray[4].rn_id);
-        /*this.userArray.forEach(row => {
-          console.log(row);
-          })*/
     },
       error => {
           console.log(error);
@@ -94,7 +88,7 @@ export class NurseScheduleService {
     }
 
     // returns list of preexisting shifts (no duplicates)
-    getShifts(): string[] {
+    getShiftTypes(): string[] {
       let shifts: string[] = [];
 
       // read .csv
@@ -118,7 +112,7 @@ export class NurseScheduleService {
 
           // organize shifts before returning them
           shifts = this.organizeShifts(shifts);
-          console.log("organized:", shifts)
+          //console.log("organized:", shifts)
           return shifts;
 
       },
