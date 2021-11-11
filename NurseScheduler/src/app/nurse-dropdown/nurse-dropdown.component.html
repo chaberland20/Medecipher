@@ -19,20 +19,11 @@
             <option value="shift">{{shift}}</option>
         </ng-container>
 
-        <!--
-        <option value="1900_08HR">19:00 - 8hr</option>
-        <option value="0700_12HR">07:00 - 12hr</option>
-        <option value="0900_12HR">09:00 - 12hr</option>
-        <option value="1100_12HR">11:00 - 12hr</option>
-        <option value="1300_12HR">13:00 - 12hr</option>
-        <option value="1500_12HR">15:00 - 12hr</option>
-        <option value="1900_12HR">19:00 - 12hr</option>
-        -->
     </select>
 
 
     <!-- Nurse name dropdown -->
-    <select class="select" name="name-select" id="name-dropdown" (change)="updateSelectedID($event)">
+    <select class="select" name="id-select" id="id-dropdown" (change)="updateSelectedID($event)">
         <option value="">- Nurse id -</option>
     
         <!-- Logic for displaying nurses of the selected type -->

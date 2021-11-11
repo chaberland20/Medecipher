@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NurseSched, NurseScheduleService } from '../nurse-schedule.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { NURSES } from '../mock-staff';
-import { Nurse } from '../Nurse';
 
 @Component({
   selector: 'app-nurse-dropdown',
@@ -20,15 +18,15 @@ export class NurseDropdownComponent implements OnInit {
   nurseIds: string[] = [];
   shifts: string[] = [];
 
+  shiftData: shiftData[] = [];
+
   constructor (private http: HttpClient) {}
 
   ngOnInit(): void {
     let scheduleService = new NurseScheduleService(this.http)
-    this.schedule = scheduleService.getSched()
+    //this.schedule = scheduleService.getSched()
     this.nurseIds = scheduleService.getNurseIds()
     this.shifts = scheduleService.getShifts()
-
-    this.organizeShifts()
   }
 
 
@@ -54,10 +52,6 @@ export class NurseDropdownComponent implements OnInit {
     else return "N/A"
   }
 
-  // TODO: sort shifts by duration/start time
-  organizeShifts() {
-
-  }
 
   // ensures user has selected all shift parameters
   verifyShift() {
@@ -66,5 +60,14 @@ export class NurseDropdownComponent implements OnInit {
     else
       alert("Error: one or more shift parameters are blank");
   }
+}
 
+export class shiftData {
+  startTime: number;
+  duration: number;
+
+  constructor(startTime: number, duration: number){
+    this.startTime = startTime;
+    this.duration = duration;
+  }
 }

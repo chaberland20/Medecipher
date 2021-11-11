@@ -110,11 +110,15 @@ export class NurseScheduleService {
             this.userArray.push(new NurseSched( row[0], row[1], row[2], row[3].trim()));
           }
           
-          // extract and return list of ids
+          // extract and return list of shifts
           this.userArray.forEach((s) => {
+            // every shift contains HR; so if the shift isn't a duplicate and has HR, add it
             if(!shifts.includes(s.shift_assigned) && s.shift_assigned.search("HR") != -1) shifts.push(s.shift_assigned)
           })
 
+          // organize shifts before returning them
+          shifts = this.organizeShifts(shifts);
+          console.log("organized:", shifts)
           return shifts;
 
       },
@@ -124,6 +128,32 @@ export class NurseScheduleService {
       );   
 
       return shifts;
+    }
+
+    // orders list of shifts by duration and start time
+    organizeShifts(shifts: string[]) {
+
+      var data: shiftData[] = [];
+      var sortedShifts: string[] = [];
+
+      // extract duration and start time
+      shifts.forEach((s) => {      
+        var startTime = +s.substring(0, 4)
+        var duration = +s.substring(5, 7) 
+  
+        var shift = new shiftData(startTime, duration)
+        data.push(shift);
+      })
+      
+      // sort by duration, then by start time
+      data = data.sort((a, b) => ( (a.duration < b.duration) || (a.duration == b.duration && a.startTime < b.startTime) ? -1 : 1))
+
+
+      data.forEach((d) => {
+        sortedShifts.push(d.startTime + " " + d.duration + "hr")
+      })
+
+      return sortedShifts;
     }
   }
 
@@ -140,3 +170,14 @@ export class NurseScheduleService {
       this.shift_assigned = shift_assigned;
     }
   }
+
+  export class shiftData{
+    startTime: number;
+    duration: number;
+
+    constructor(startTime: number, duration: number) {
+      this.duration = duration;
+      this.startTime = startTime;
+    }
+  }
+
