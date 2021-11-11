@@ -1,44 +1,43 @@
 <div class = "dropdown-container">
 
     <!-- Nurse type dropdown -->
-    <select class="select" id="type-dropdown" (change)="selectChangeHandler($event)">
+    <select class="select" id="type-dropdown" (change)="updateSelectedType($event)">
         <option value="">- Nurse type -</option>
-        <option value="CN">CN</option>
-        <option value="CNA">CNA</option>
-        <option value="RN">RN</option>
+        <option value="EDRN">EDRN</option>
+        <option value="CRN">CRN</option>
+        <option value="DDRN">DDRN</option>
         
     </select>
 
 
     <!-- Shift duration dropdown -->
-    <select class="select" name="time-select" id="time-dropdown">
+    <select class="select" name="time-select" id="time-dropdown" (change)="updateSelectedShift($event)">
         <option value="">- Shift type -</option>
-        <option value="1900_08HR">19:00 - 8hr</option>
-        <option value="0700_12HR">07:00 - 12hr</option>
-        <option value="0900_12HR">09:00 - 12hr</option>
-        <option value="1100_12HR">11:00 - 12hr</option>
-        <option value="1300_12HR">13:00 - 12hr</option>
-        <option value="1500_12HR">15:00 - 12hr</option>
-        <option value="1900_12HR">19:00 - 12hr</option>
+
+        <!-- Logic for displaying shifts -->
+        <ng-container *ngFor="let shift of shifts">
+            <option value="shift">{{shift}}</option>
+        </ng-container>
+
     </select>
 
 
     <!-- Nurse name dropdown -->
-    <select class="select" name="name-select" id="name-dropdown">
+    <select class="select" name="id-select" id="id-dropdown" (change)="updateSelectedID($event)">
         <option value="">- Nurse id -</option>
     
         <!-- Logic for displaying nurses of the selected type -->
         <ng-container *ngFor="let id of nurseIds">
-            <!-- <ng-container *ngIf="nurse.type == selectedType"> -->
+            <ng-container *ngIf="checkType(id) == selectedType">
                 <option value="id">{{id}}</option>
-            <!-- </ng-container> -->
+            </ng-container>
         </ng-container>
     
     </select>
 
 
     <!-- Adds shift to the current schedule -->
-    <button class="confirm" type="button" onclick="">
+    <button class="confirm" type="button" onclick="verifyShift()">
         Confirm
     </button>
 

@@ -58,20 +58,19 @@ export class NurseScheduleService {
       return this.userArray;
     }
   
-    // returns list of nurse ids
+    // returns list of nurse ids (no duplicates)
     getNurseIds(): string[] {
 
       let ids: string[] = [];
-      let num = 0; // num exists so we can skip the first nurse id, which is the header in our .csv file
 
-      // read .csv and send schedule
+      // read .csv
       this.http.get('assets/Nurse_Shifts.csv',
       {responseType: 'text'})
       .subscribe(
         data => {
           let csvToRowArray = data.split("\n");
           
-          // read .csv data into array
+          // import .csv data into array
           for (let index = 0; index < csvToRowArray.length - 1; index++) {
             let row = csvToRowArray[index].split(",");
             this.userArray.push(new NurseSched( row[0], row[1], row[2], row[3].trim()));
@@ -79,11 +78,9 @@ export class NurseScheduleService {
           
           // extract and return list of ids
           this.userArray.forEach((s) => {
-            if(num != 0 && !ids.includes(s.rn_id)) ids.push(s.rn_id)
-            else num += 1
+            if(!ids.includes(s.rn_id)) ids.push(s.rn_id)
           })
 
-          //console.log("ids?", ids)
           return ids;
 
       },
@@ -94,6 +91,69 @@ export class NurseScheduleService {
 
       // returns empty list if error
       return ids;
+    }
+
+    // returns list of preexisting shifts (no duplicates)
+    getShifts(): string[] {
+      let shifts: string[] = [];
+
+      // read .csv
+      this.http.get('assets/Nurse_Shifts.csv',
+      {responseType: 'text'})
+      .subscribe(
+        data => {
+          let csvToRowArray = data.split("\n");
+          
+          // import .csv data into array
+          for (let index = 0; index < csvToRowArray.length - 1; index++) {
+            let row = csvToRowArray[index].split(",");
+            this.userArray.push(new NurseSched( row[0], row[1], row[2], row[3].trim()));
+          }
+          
+          // extract and return list of shifts
+          this.userArray.forEach((s) => {
+            // every shift contains HR; so if the shift isn't a duplicate and has HR, add it
+            if(!shifts.includes(s.shift_assigned) && s.shift_assigned.search("HR") != -1) shifts.push(s.shift_assigned)
+          })
+
+          // organize shifts before returning them
+          shifts = this.organizeShifts(shifts);
+          console.log("organized:", shifts)
+          return shifts;
+
+      },
+        error => {
+            console.log(error);
+        }
+      );   
+
+      return shifts;
+    }
+
+    // orders list of shifts by duration and start time
+    organizeShifts(shifts: string[]) {
+
+      var data: shiftData[] = [];
+      var sortedShifts: string[] = [];
+
+      // extract duration and start time
+      shifts.forEach((s) => {      
+        var startTime = +s.substring(0, 4)
+        var duration = +s.substring(5, 7) 
+  
+        var shift = new shiftData(startTime, duration)
+        data.push(shift);
+      })
+      
+      // sort by duration, then by start time
+      data = data.sort((a, b) => ( (a.duration < b.duration) || (a.duration == b.duration && a.startTime < b.startTime) ? -1 : 1))
+
+
+      data.forEach((d) => {
+        sortedShifts.push(d.startTime + " " + d.duration + "hr")
+      })
+
+      return sortedShifts;
     }
   }
 
@@ -110,3 +170,14 @@ export class NurseScheduleService {
       this.shift_assigned = shift_assigned;
     }
   }
+
+  export class shiftData{
+    startTime: number;
+    duration: number;
+
+    constructor(startTime: number, duration: number) {
+      this.duration = duration;
+      this.startTime = startTime;
+    }
+  }
+
