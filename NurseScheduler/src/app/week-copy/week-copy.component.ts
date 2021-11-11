@@ -13,5 +13,5 @@ export class WeekCopyComponent implements OnInit {
   }
 
   value = 0;
-  onEnter(value: number) { this.value = value; }
+  onEnter(value: any) { this.value = value; }
 }
