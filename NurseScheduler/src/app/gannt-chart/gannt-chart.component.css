@@ -7,7 +7,9 @@
       max-width: 1200px;
       min-width: 650px;
       margin: 0 auto;
-      padding: 50px;      
+      padding: 50px;
+      height: 700px;
+      overflow: auto;    
   }
   .date-heading {
     background-color: #DCDCDC;

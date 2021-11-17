@@ -27,12 +27,12 @@ export const NURSES= [
 
 export const TYPES= [
     {
-        type: 'CN'
+        type: 'CRN'
     },
     {
-        type:'CNA'
+        type:'DDRN'
     },
     {
-        type: 'RN'
+        type: 'EDRN'
     }
 ]
