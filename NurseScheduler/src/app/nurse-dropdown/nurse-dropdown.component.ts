@@ -14,19 +14,17 @@ export class NurseDropdownComponent implements OnInit {
   selectedShift: string = "";
   selectedId: string = "";
 
-  schedule: NurseSched[] = [];  
   nurseIds: string[] = [];
-  shifts: string[] = [];
+  shiftTypes: string[] = [];
 
-  shiftData: shiftData[] = [];
+  
+  constructor (private http: HttpClient) { }
 
-  constructor (private http: HttpClient) {}
-
+  // load data from .csv file on instantiation
   ngOnInit(): void {
     let scheduleService = new NurseScheduleService(this.http)
-    //this.schedule = scheduleService.getSched()
     this.nurseIds = scheduleService.getNurseIds()
-    this.shifts = scheduleService.getShifts()
+    this.shiftTypes = scheduleService.getShiftTypes()
   }
 
 
@@ -55,19 +53,10 @@ export class NurseDropdownComponent implements OnInit {
 
   // ensures user has selected all shift parameters
   verifyShift() {
+    alert("button clicked!");
     if(this.selectedType != "" && this.selectedShift != "" && this.selectedId != "")
-      alert("Shift can be added!");
+      console.log("Shift can be added!");
     else
-      alert("Error: one or more shift parameters are blank");
-  }
-}
-
-export class shiftData {
-  startTime: number;
-  duration: number;
-
-  constructor(startTime: number, duration: number){
-    this.startTime = startTime;
-    this.duration = duration;
+      console.log("Error: one or more shift parameters are blank");
   }
 }

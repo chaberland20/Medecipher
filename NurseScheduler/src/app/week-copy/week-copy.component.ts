@@ -12,4 +12,6 @@ export class WeekCopyComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  value = 0;
+  onEnter(value: any) { this.value = value; }
 }

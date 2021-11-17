@@ -21,4 +21,11 @@ export class AppComponent implements OnInit{
     // }
   }
   title = 'NurseScheduler';
+  date= new Date(Date.now());
+  
+  receiveMessage($event:any){
+    this.date = $event;
+    this.parentMessage = this.date;
+  }
+  parentMessage = this.date;
 }

@@ -83,7 +83,7 @@ export class NurseScheduleService {
           }
           // extract and return list of ids
           this.userArray.forEach((s) => {
-            if(!ids.includes(s.rn_id)) ids.push(s.rn_id)
+            if(!ids.includes(s.rn_id)) ids.push(s.rn_id)  // makes sure we don't include duplicates
           })
           return ids;
       },
@@ -96,7 +96,7 @@ export class NurseScheduleService {
     }
 
     // returns list of preexisting shifts (no duplicates)
-    getShifts(): string[] {
+    getShiftTypes(): string[] {
       let shifts: string[] = [];
       // read .csv
       this.http.get('assets/Nurse_Shifts.csv',
@@ -111,12 +111,11 @@ export class NurseScheduleService {
           }
           // extract and return list of shifts
           this.userArray.forEach((s) => {
-            // every shift contains HR; so if the shift isn't a duplicate and has HR, add it
+            // every shift should contain HR; if the shift isn't a duplicate and has HR, add it
             if(!shifts.includes(s.shift_assigned) && s.shift_assigned.search("HR") != -1) shifts.push(s.shift_assigned)
           })
           // organize shifts before returning them
           shifts = this.organizeShifts(shifts);
-          console.log("organized:", shifts)
           return shifts;
 
       },

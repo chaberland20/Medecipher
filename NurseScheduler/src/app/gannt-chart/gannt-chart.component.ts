@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -22,6 +22,7 @@ export class GanntChartComponent implements OnInit {
   testArray: NurseSched[] = []
   shiftArray: NurseSched[] =[]
   
+<<<<<<< HEAD
   // return type of nurse based on id
   checkType (id: string) {
     if(id.search("CRN") != -1) return "CRN"
@@ -29,6 +30,10 @@ export class GanntChartComponent implements OnInit {
     else if(id.search("EDRN") != -1) return "EDRN"  // all nurse ids contain 'EDRN', so put this if statement last
     else return "N/A"
   }
+=======
+  
+  @Input() childMessage: any | undefined;
+>>>>>>> add7e15923c2b5327be098b1b02ab60682bdc50e
 
   getColor(nurseType: string) { (2)
     switch (nurseType) {
@@ -133,7 +138,19 @@ export class GanntChartComponent implements OnInit {
 
   ngOnInit(){
     let sched = new NurseScheduleService(this.http)
-    this.schedule = sched.getSched('11/11/2020')
-    console.log(this.schedule)
+    // console.log(sched)
+    console.log(sched.userArray)
+
+
+    for (let index = 1; index < sched.userArray.length-1; index++){
+      let row = sched.userArray[index]
+      // console.log('test loop');
+      this.testArray.push(row)
+    }
+    // console.log(this.testArray)
+    // sched.userArray.forEach(row => {
+    //   console.log(row);
+    //   })
+      
   }
 }
