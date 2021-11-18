@@ -9,10 +9,11 @@ import { Calendar } from '@syncfusion/ej2-calendars';
 export class CalendarComponent {
   public today: Date = new Date ();
   public currentMonth: number = this.today.getMonth();
+  public currentYear: number = this.today.getFullYear();
   constructor() { 
   }
   disabledDate(args: any): void {
-    if (args.date.getMonth() != this.currentMonth){
+    if (args.date.getMonth() != this.currentMonth || args.date.getFullYear() != this.currentYear){
         args.isDisabled = true;
     }
   }
