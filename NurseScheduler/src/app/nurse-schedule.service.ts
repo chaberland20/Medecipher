@@ -145,10 +145,39 @@ export class NurseScheduleService {
       })
       return sortedShifts;
     }
+
+    // returns the current schedule run
+    getCurrentRun() {
+      let run: string = "";
+
+      // read .csv
+      this.http.get('assets/Nurse_Shifts.csv',
+      {responseType: 'text'})
+      .subscribe(
+        data => {
+          let csvToRowArray = data.split("\n");
+
+          // import .csv data into array
+          for (let index = 0; index < csvToRowArray.length - 1; index++) {
+            let row = csvToRowArray[index].split(",");
+            this.userArray.push(new NurseSched( row[0], row[1], row[2], row[3].trim()));
+          }
+
+          // get run_id from first nurse object, index 1 to ignore .csv header row
+          run = this.userArray[1].run_id
+          return run
+      },
+        error => {
+            console.log(error);
+        }
+      );   
+
+      return run;
+    }
   }
 
   export class NurseSched{
-    run_id?: string;
+    run_id: string;
     date: string;
     rn_id: string;
     shift_assigned: string;

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NurseSched, NurseScheduleService } from '../nurse-schedule.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { NurseScheduleService } from '../nurse-schedule.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-nurse-dropdown',
@@ -13,12 +13,26 @@ export class NurseDropdownComponent implements OnInit {
   selectedType: string = "";
   selectedShift: string = "";
   selectedId: string = "";
-
+  
+  currentRun: string = "";
   nurseIds: string[] = [];
   shiftTypes: string[] = [];
-
   
-  constructor (private http: HttpClient) { }
+
+  constructor (private http: HttpClient) {
+    this.http.get('assets/Nurse_Shifts.csv',
+    {responseType: 'text'})
+    .subscribe(
+      data => {
+        let csvToRowArray = data.split("\n");
+        let row = csvToRowArray[1].split(",");  // get run_id from first nurse object, index 1 to ignore .csv header row
+        this.currentRun = row[0];
+    },
+      error => {
+          console.log(error);
+      }
+    );
+   }
 
   // load data from .csv file on instantiation
   ngOnInit(): void {
@@ -54,9 +68,9 @@ export class NurseDropdownComponent implements OnInit {
 
   // ensures user has selected all shift parameters
   verifyShift() {
+    // if user input all parameters, save new shift to the schedule
     if(this.selectedType != "" && this.selectedShift != "" && this.selectedId != "") {
-      // write shift to .csv file
-      this.writeShift(this.selectedType, this.selectedShift, this.selectedId)
+      this.writeShift(this.selectedId, this.selectedShift)
     }
     else
       alert("Error: One or more shift details are blank.");
@@ -64,8 +78,8 @@ export class NurseDropdownComponent implements OnInit {
 
 
   // writes a shift to 'Nurse_Shifts.csv'
-  writeShift(type: string, shift: string, id: string) {
-
+  writeShift(id: string, shift: string) {
+    console.log("adding the following to the schedule:", "\nRun_ID - ", this.currentRun, "\nDate - HARDCODED 11/14/20", "\nRN_ID - ", id, "\nShift_Assigned - ", shift)
   }
 
 }
