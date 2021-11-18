@@ -6,7 +6,6 @@
         <option value="EDRN">EDRN</option>
         <option value="CRN">CRN</option>
         <option value="DDRN">DDRN</option>
-        
     </select>
 
 
@@ -16,20 +15,20 @@
 
         <!-- Logic for displaying shifts -->
         <ng-container *ngFor="let shiftType of shiftTypes">
-            <option value="shiftType">{{shiftType}}</option>
+            <option value="{{shiftType}}">{{shiftType}}</option>
         </ng-container>
 
     </select>
 
 
-    <!-- Nurse name dropdown -->
+    <!-- Nurse ID dropdown -->
     <select class="select" name="id-select" id="id-dropdown" (change)="updateSelectedID($event)">
         <option value="">- Nurse id -</option>
     
         <!-- Logic for displaying nurses of the selected type -->
         <ng-container *ngFor="let id of nurseIds">
             <ng-container *ngIf="checkType(id) == selectedType">
-                <option value="id">{{id}}</option>
+                <option value="{{id}}">{{id}}</option>
             </ng-container>
         </ng-container>
     
