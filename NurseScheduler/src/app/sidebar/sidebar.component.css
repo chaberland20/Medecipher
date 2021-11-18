@@ -17,8 +17,8 @@
 
 .buttons{
     grid-column: 1;
-    padding-top: 7px;
-    padding-bottom: 3px;
+    padding-top: 12px;
+    padding-bottom: 5px;
 }
 
 .week_copy{
