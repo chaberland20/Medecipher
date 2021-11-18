@@ -137,7 +137,6 @@ export class GanntChartComponent implements OnInit {
     let sched = new NurseScheduleService(this.http)
     this.schedule = sched.getSched('11/11/2020')
 
-
     for (let index = 1; index < sched.userArray.length-1; index++){
       let row = sched.userArray[index]
       // console.log('test loop');

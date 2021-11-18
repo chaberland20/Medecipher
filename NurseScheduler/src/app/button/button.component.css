@@ -1,7 +1,8 @@
-/* Arrange the buttons vertically */
+/* Arrange the buttons horizontally */
 .button_container{
     display: grid;
-    /*width: 50%;*/
+    width: 50%;
+    padding-top: 2px;
 }
   
 .button1{
