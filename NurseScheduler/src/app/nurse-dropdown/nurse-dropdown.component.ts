@@ -31,6 +31,7 @@ export class NurseDropdownComponent implements OnInit {
   // methods to update selected shift parameters
   updateSelectedType (event: any) {
     this.selectedType = event.target.value;
+    this.selectedId = "";   // reset ID when type is changed, prevents previous id from being assigned another shift
   }
 
   updateSelectedShift (event: any) {
@@ -53,10 +54,18 @@ export class NurseDropdownComponent implements OnInit {
 
   // ensures user has selected all shift parameters
   verifyShift() {
-    alert("button clicked!");
-    if(this.selectedType != "" && this.selectedShift != "" && this.selectedId != "")
-      console.log("Shift can be added!");
+    if(this.selectedType != "" && this.selectedShift != "" && this.selectedId != "") {
+      // write shift to .csv file
+      this.writeShift(this.selectedType, this.selectedShift, this.selectedId)
+    }
     else
-      console.log("Error: one or more shift parameters are blank");
+      alert("Error: One or more shift details are blank.");
   }
+
+
+  // writes a shift to 'Nurse_Shifts.csv'
+  writeShift(type: string, shift: string, id: string) {
+
+  }
+
 }
