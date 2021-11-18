@@ -11,20 +11,6 @@ export class NurseScheduleService {
   shiftArray: NurseSched[] =[]
 
   constructor(private http: HttpClient) {
-    this.http.get('assets/Nurse_Shifts.csv',
-    {responseType: 'text'})
-    .subscribe(
-      data => {
-        let csvToRowArray = data.split("\n");
-        for (let index = 0; index < csvToRowArray.length - 1; index++) {
-          let row = csvToRowArray[index].split(",");
-          this.userArray.push(new NurseSched( row[0], row[1], row[2], row[3].trim()));
-        }
-    },
-      error => {
-          console.log(error);
-      }
-    );
     }
     
   // return type of nurse based on id
