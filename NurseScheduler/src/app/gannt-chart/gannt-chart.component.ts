@@ -28,6 +28,7 @@ export class GanntChartComponent implements OnInit {
     else if(id.search("DDRN") != -1) return "DDRN"
     else if(id.search("EDRN") != -1) return "EDRN"  // all nurse ids contain 'EDRN', so put this if statement last
     else return "N/A"
+
   }
   
   @Input() childMessage: any | undefined;

@@ -49,15 +49,15 @@ export class NurseScheduleService {
             let row = csvToRowArray[index].split(",");
             this.userArray.push(new NurseSched( row[0], row[1], row[2], row[3].trim()));
           }
+
           this.userArray.forEach((s) => {
-            if(date == s.date){
+            if(!sched.includes(s) && date == s.date){
               sched.push(s)
             }
-
           })
-          console.log("sched:",sched)
-            return sched
-          console.log(sched)
+          
+          console.log("filtered sched", sched)
+          return sched
       },
         error => {
             console.log(error);

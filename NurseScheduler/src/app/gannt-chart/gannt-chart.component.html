@@ -61,7 +61,7 @@
             <ng-container *ngFor='let nurse of schedule'>
                 <ng-container *ngIf="nurse.shift_assigned!='NA'">
                     <ng-container *ngIf='type.type==checkType(nurse.rn_id)'>
-                        <div class="chart-row-item" [style.background-color]="getColor(checkType(nurse.rn_id))" style='color:white'>{{checkType(nurse.rn_id)}}</div>
+                        <div class="chart-row-item" [style.background-color]="getColor(checkType(nurse.rn_id))" style='color:white'>{{type.type}}</div>
                             <ul class="chart-row-bars">
                                 <li class="chart-li-item"[style.background-color]="getColor(checkType(nurse.rn_id))"[style.grid-column]="styleShift(nurse.shift_assigned)" style='color:white'>{{nurse.rn_id}}</li>
                             </ul>
