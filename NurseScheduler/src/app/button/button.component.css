@@ -1,7 +1,7 @@
 /* Arrange the buttons horizontally */
 .button_container{
     display: grid;
-    width: 50%;
+    width: 85%;
     padding-top: 2px;
 }
   
