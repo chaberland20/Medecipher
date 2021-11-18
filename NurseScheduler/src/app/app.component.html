@@ -1,7 +1,7 @@
 <div class='page_container'>
     <div class='sidebar'>
         <app-calendar (messageEvent)="receiveMessage($event)"></app-calendar> 
-        <app-sidebar></app-sidebar>
+        <app-sidebar [interMessage]="parentMessage"></app-sidebar>
     </div>
     
     <!-- <ejs-calendar id=calendar [value]='value' [min]='minDate' [max]='maxDate' [isMultiSelection]='multiSelect'></ejs-calendar> -->
