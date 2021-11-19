@@ -2,6 +2,7 @@
 .button_container{
     display: grid;
     width: 100%;
+    padding-bottom: 60px; /* ensures bottom spacing with fixed positioning */
 }
   
 .button1{
