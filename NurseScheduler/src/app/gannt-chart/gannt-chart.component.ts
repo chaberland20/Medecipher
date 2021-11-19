@@ -43,11 +43,13 @@ export class GanntChartComponent implements OnInit {
   getColor(nurseType: string) { (2)
     switch (nurseType) {
       case "CRN":
-        return '#0080FF';
+        // return '#254e58';
+        return '#132536';
+
       case "DDRN":
-        return '#73C2FB';
+        return '#361325';
       case "EDRN":
-        return '#0E4D92';
+        return '#133633';
       default:
         return 'purple';
     }

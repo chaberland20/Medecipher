@@ -12,28 +12,34 @@
       overflow: auto;    
   }
   .date-heading {
-    background-color: #DCDCDC;
+    background-color: #e5d3b3;
+    /* background-color: #F6FFE6;  */
+
     display: flex; 
     justify-content: center;
-    border-top: 2px solid #000;
-    border-left: 2px solid #000;
-    border-right: 2px solid #000;
+    border-top: 2px solid #4f4a41;
+    border-left: 2px solid #4f4a41;
+    border-right: 2px solid #4f4a41;
+    border-bottom: 1px solid black;
     height: 35px;
+    font-family: Arial, Helvetica, sans-serif;
     font-size:x-large;
   }
   .chart {
       display: grid;
-      border: 2px solid #000;
+      border-left: 2px solid #4f4a41;
+      border-right: 2px solid #4f4a41;
+      border-bottom: 2px solid #4f4a41;
       position: relative;
       overflow: hidden;  
   }
   .chart-row {
     display: grid;      
     grid-template-columns: 50px 1fr;
-    background-color: #DCDCDC;
+    background-color: #DED6C8;
   }
   .chart-row:nth-child(odd) {
-    background-color: #C0C0C0;
+    background-color: #FAF2E4;
   }
   .chart-period {
     color:  #fff;

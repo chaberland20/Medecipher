@@ -31,10 +31,12 @@
     width: 120px;
     height: 60px;
     text-align: center;
-    color: #fff;
+    color: white;
     text-shadow: 3px 3px 3px #000;
     border-radius: 10px;
-    background-color: #2980B9;
+    /* background-color: #2980B9; */
+    background-color: #2b6777;
+
     background-image: linear-gradient(to top left,
                                       rgba(0, 0, 0, .2),
                                       rgba(0, 0, 0, .2) 30%,

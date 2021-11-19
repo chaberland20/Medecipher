@@ -1,7 +1,7 @@
 .container {
     background-color: whitesmoke;
     display: grid;
-    border: 1px solid black;
+    border: 2px solid #4f4a41;
     width: 244px;
     padding: 0px;
 }
