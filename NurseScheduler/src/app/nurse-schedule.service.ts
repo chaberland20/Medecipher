@@ -42,7 +42,6 @@ export class NurseScheduleService {
             }
           })
           
-          console.log("filtered sched", sched)
           return sched
       },
         error => {
@@ -100,8 +99,6 @@ export class NurseScheduleService {
             // every shift should contain HR; if the shift isn't a duplicate and has HR, add it
             if(!shifts.includes(s.shift_assigned) && s.shift_assigned.search("HR") != -1) shifts.push(s.shift_assigned)
           })
-          // organize shifts before returning them
-          shifts = this.organizeShifts(shifts);
           return shifts;
 
       },
