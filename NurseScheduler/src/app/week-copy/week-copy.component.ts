@@ -14,12 +14,13 @@ export class WeekCopyComponent implements OnInit {
 
   }
 
-  @Input('childMessage') weekOf: any | undefined; /* date gets passed from calendar to app to sidebar to here */
+  @Input('childMessage') today: any | undefined; /* date gets passed from calendar to app to sidebar to here */
 
   /* Takes calendar selected date and finds previous Monday */
   getMonday() {
-      this.weekOf.setDate(this.weekOf.getDate() - (this.weekOf.getDate() + 6) % 7);
-      return this.weekOf;
+    var weekOf: Date = new Date();
+    weekOf.setDate(this.today.getDate() - (this.today.getDate() + 7) % 7);
+    return weekOf;
   }
 
   value = null;
