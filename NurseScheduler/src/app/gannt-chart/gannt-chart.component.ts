@@ -1,8 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Type } from '../Type';
-import { TYPES } from '../mock-staff';
 import { NurseSched, NurseScheduleService } from '../nurse-schedule.service';
 
 @Component({
@@ -12,7 +10,11 @@ import { NurseSched, NurseScheduleService } from '../nurse-schedule.service';
 })
 
 export class GanntChartComponent implements OnInit {
-  types: Type[] = TYPES
+  types= [
+    { type: 'CRN' },
+    { type:'DDRN'},
+    { type: 'EDRN' }
+    ]
   schedule: NurseSched[] = []
   testArray: NurseSched[] = []
   shiftArray: NurseSched[] =[]
@@ -141,4 +143,4 @@ export class GanntChartComponent implements OnInit {
     }
 
   }
-}
+} 
