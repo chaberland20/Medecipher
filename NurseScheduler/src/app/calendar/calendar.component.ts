@@ -1,5 +1,4 @@
 import {Component, Output, EventEmitter} from '@angular/core';
-import { Calendar } from '@syncfusion/ej2-calendars';
  
 @Component ({
     selector: 'app-calendar',
@@ -12,6 +11,7 @@ export class CalendarComponent {
   public currentYear: number = this.today.getFullYear();
   constructor() { 
   }
+
   disabledDate(args: any): void {
     if (args.date.getMonth() != this.currentMonth || args.date.getFullYear() != this.currentYear){
         args.isDisabled = true;
@@ -23,6 +23,7 @@ export class CalendarComponent {
     this.item = args.value;
     this.messageEvent.emit(this.item)
   }
+
   item = this.today;
   @Output() messageEvent = new EventEmitter<any>();
 }

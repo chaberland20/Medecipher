@@ -131,11 +131,7 @@ export class NurseDropdownComponent implements OnInit {
     this.shiftTypes = sortedShifts;
   }
 
-
-
-
 }
-
 
 
 export class NurseSched{

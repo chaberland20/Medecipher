@@ -1,24 +1,17 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { DatePipe } from '@angular/common'
+import { HttpClient } from '@angular/common/http';
 
-import { NURSES } from '../mock-staff';
-import { Nurse } from '../Nurse';
 import { Type } from '../Type';
 import { TYPES } from '../mock-staff';
-import { CalendarComponent } from '../calendar/calendar.component';
 import { NurseSched, NurseScheduleService } from '../nurse-schedule.service';
-import { ColorRangeData } from '@syncfusion/ej2-inputs';
-// import { get } from 'http';
 
 @Component({
   selector: 'app-gannt-chart',
   templateUrl: './gannt-chart.component.html',
   styleUrls: ['./gannt-chart.component.css']
 })
+
 export class GanntChartComponent implements OnInit {
-  nurses: Nurse[] = NURSES
   types: Type[] = TYPES
   schedule: NurseSched[] = []
   testArray: NurseSched[] = []
@@ -35,7 +28,6 @@ export class GanntChartComponent implements OnInit {
   
   @Input() childMessage: any | undefined;
   ngOnChanges(changes: any){
-    //console.log(this.childMessage)
     //this.updateSchedule(new NurseScheduleService(this.http), this.childMessage);
     this.ngOnInit()
   }
@@ -43,9 +35,7 @@ export class GanntChartComponent implements OnInit {
   getColor(nurseType: string) { (2)
     switch (nurseType) {
       case "CRN":
-        // return '#254e58';
         return '#132536';
-
       case "DDRN":
         return '#361325';
       case "EDRN":
@@ -123,14 +113,7 @@ export class GanntChartComponent implements OnInit {
         return 0;
     }
   }
-  // getShiftLength(length: string){
-  //   switch (length){
-  //     case "08":
-  //       return ;
-  //     case "12":
-  //       return 2;
-  // }
- //0900_12HR
+
 
   styleShift(nurseShift: string){
     var start: number = this.getShiftStart(nurseShift)
@@ -138,6 +121,7 @@ export class GanntChartComponent implements OnInit {
     var end = start + length
     return String(start) + '/' + String(end)
   }
+
   public date: Date = new Date(Date.now());
 
   constructor(private http: HttpClient) {
@@ -145,22 +129,16 @@ export class GanntChartComponent implements OnInit {
 
   ngOnInit(){
     let sched = new NurseScheduleService(this.http)
-    //let string_date = this.childMessage.getMonth()+'/'+this.childMessage.getDate()+'/'+this.childMessage.getFullYear();
-    let string_date = (this.childMessage.getMonth()+1)+'/'+this.childMessage.getDate()+'/2020'; //because schedule is from 2020, and not current year of 2021
-    if (this.childMessage.getDate() >= 14){ //becayse we don't have the csv for anything past Nov. 14th, 2020
+    let string_date = (this.childMessage.getMonth()+1)+'/'+this.childMessage.getDate()+'/2020'; // because schedule is from 2020, and not current year of 2021
+    if (this.childMessage.getDate() >= 14){   // because we don't have the csv for anything past Nov. 14th, 2020
       string_date = ('11/14/2020')
     }
     this.schedule = sched.getSched(string_date)
 
     for (let index = 1; index < sched.userArray.length-1; index++){
       let row = sched.userArray[index]
-      // console.log('test loop');
       this.testArray.push(row)
     }
-    // console.log(this.testArray)
-    // sched.userArray.forEach(row => {
-    //   console.log(row);
-    //   })
-      
+
   }
 }

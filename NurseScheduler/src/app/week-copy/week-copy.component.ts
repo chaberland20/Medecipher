@@ -16,7 +16,7 @@ export class WeekCopyComponent implements OnInit {
 
   @Input('childMessage') today: any | undefined; /* date gets passed from calendar to app to sidebar to here */
 
-  /* Takes calendar selected date and finds previous Monday */
+  /* Takes calendar selected date and finds previous Sunday */
   getMonday() {
     var weekOf: Date = new Date();
     weekOf.setDate(this.today.getDate() - (this.today.getDate() + 7) % 7);
