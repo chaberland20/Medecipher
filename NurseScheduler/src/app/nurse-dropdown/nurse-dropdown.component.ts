@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NurseScheduleService } from '../nurse-schedule.service';
 import { HttpClient } from '@angular/common/http';
 
@@ -42,6 +42,8 @@ export class NurseDropdownComponent implements OnInit {
     this.getShiftTypes()
   }
 
+  @Input('childMessage') today: any | undefined; /* date gets passed from calendar to app to sidebar to here */
+
 
   // methods to update selected shift parameters
   updateSelectedType (event: any) {
@@ -80,7 +82,60 @@ export class NurseDropdownComponent implements OnInit {
 
   // writes a shift to 'Nurse_Shifts.csv'
   writeShift(id: string, shift: string) {
-    console.log("adding the following to the schedule:", "\nRun_ID - ", this.currentRun, "\nDate - HARDCODED 11/14/20", "\nRN_ID - ", id, "\nShift_Assigned - ", shift)
+    var date = new Date();
+    date.setDate(this.today.getDate());
+    console.log("adding the following to the schedule:", "\nRun_ID - ", this.currentRun, "\nDate - ", this.rewriteDate(date), "\nRN_ID - ", id, "\nShift_Assigned - ", shift)
+  }
+
+  // configures a date to make it human-readable
+  rewriteDate(date: Date) {
+    var oldDate = date.toString()
+    console.log("string:", oldDate)
+    var newDate = new String;
+    var month = new String;
+
+    switch (oldDate.substring(4, 7)){
+      case "Jan": 
+        month = "1";
+        break;
+      case "Feb":
+        month = "2";
+        break;
+      case "Mar":
+        month = "3";
+        break;
+      case "Apr": 
+        month = "4";
+        break;
+      case "May": 
+        month = "5";
+        break;
+      case "Jun": 
+        month = "6";
+        break;
+      case "Jul": 
+        month = "7";
+        break;
+      case "Aug": 
+        month = "8";
+        break;
+      case "Sep":
+        month = "9";
+        break;
+      case "Oct": 
+        month = "10";  
+        break;                
+      case "Nov": 
+        month = "11";
+        break;
+      default: 
+        month = "12";      
+    }
+
+    var day = oldDate.substring(8, 10)
+    var year = oldDate.substring(11, 15)
+    newDate = month + "/" + day + "/" + year
+    return newDate;
   }
 
 
