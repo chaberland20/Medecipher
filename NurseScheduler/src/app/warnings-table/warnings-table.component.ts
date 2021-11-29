@@ -12,4 +12,15 @@ export class WarningsTableComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  understaffed: number = 3;
+  overstaffed: number = 0;
+  nexp: number = 2;
+  overworked: number = 0;
+
+  getWarningColor(value: number) {
+    if (value == 0)
+      return '#00ff00';
+    else
+      return '#ff0000';
+  }
 }

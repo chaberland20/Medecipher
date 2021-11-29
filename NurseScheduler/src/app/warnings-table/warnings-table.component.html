@@ -3,19 +3,19 @@
     <table>
         <tr>
           <th>Understaffed</th>
-          <td>3</td>
+          <td [style.background-color]="getWarningColor(understaffed)">{{understaffed}}</td>
         </tr>
         <tr>
           <th>Overstaffed</th>
-          <td>0</td>
+          <td [style.background-color]="getWarningColor(overstaffed)">{{overstaffed}}</td>
         </tr>
         <tr>
           <th>Not enough experience</th>
-          <td>2</td>
+          <td [style.background-color]="getWarningColor(nexp)">{{nexp}}</td>
         </tr>
         <tr>
           <th>Overworked nurses</th>
-          <td>0</td>
+          <td [style.background-color]="getWarningColor(overworked)">{{overworked}}</td>
         </tr>
       </table> 
 
