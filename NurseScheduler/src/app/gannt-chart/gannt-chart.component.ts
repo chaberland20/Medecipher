@@ -18,6 +18,7 @@ export class GanntChartComponent implements OnInit {
   schedule: NurseSched[] = []
   testArray: NurseSched[] = []
   shiftArray: NurseSched[] =[]
+  startsArray: Number[] = []
   
   // return type of nurse based on id
   checkType (id: string) {
@@ -123,6 +124,7 @@ export class GanntChartComponent implements OnInit {
     var end = start + length
     return String(start) + '/' + String(end)
   }
+  
 
   public date: Date = new Date(Date.now());
 
@@ -130,13 +132,17 @@ export class GanntChartComponent implements OnInit {
   }
 
   ngOnInit(){
+    for (let i: number = 1; i < 25; i++) {
+      this.startsArray[i] = i;
+    }
+    console.log(this.startsArray)
     let sched = new NurseScheduleService(this.http)
     let string_date = (this.childMessage.getMonth()+1)+'/'+this.childMessage.getDate()+'/2020'; // because schedule is from 2020, and not current year of 2021
     if (this.childMessage.getDate() >= 14){   // because we don't have the csv for anything past Nov. 14th, 2020
       string_date = ('11/14/2020')
     }
     this.schedule = sched.getSched(string_date)
-
+    
     for (let index = 1; index < sched.userArray.length-1; index++){
       let row = sched.userArray[index]
       this.testArray.push(row)

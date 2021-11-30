@@ -1,74 +1,119 @@
-<div class="container">
-    <div class=date-heading>
-        {{childMessage | date: 'longDate'}}
-    </div>
-    <div class="chart">
-    <div class="chart-row chart-period">
-        <div class="chart-row-item"></div>
-            <span>7:00</span>
-            <span>8:00</span>
-            <span>9:00</span>
-            <span>10:00</span>
-            <span>11:00</span>
-            <span>12:00</span>
-            <span>13:00</span>
-            <span>14:00</span>
-            <span>15:00</span>
-            <span>16:00</span>
-            <span>17:00</span>
-            <span>18:00</span>
-            <span>19:00</span>
-            <span>20:00</span>
-            <span>21:00</span>
-            <span>22:00</span>
-            <span>23:00</span>
-            <span>0:00</span>
-            <span>1:00</span>
-            <span>2:00</span>
-            <span>3:00</span>
-            <span>4:00</span>
-            <span>5:00</span>
-            <span>6:00</span>
-    </div>
-    <div class="chart-row chart-lines">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <ng-container *ngFor="let type of types">
+    <div class='outter'>
+
+        <div class=date-heading>
+            {{childMessage | date: 'longDate'}}
+        </div>
+        <div class="chart">
+        <div class="chart-row chart-period">
+            <div class="chart-row-item"></div>
+                <span>7:00</span>
+                <span>8:00</span>
+                <span>9:00</span>
+                <span>10:00</span>
+                <span>11:00</span>
+                <span>12:00</span>
+                <span>13:00</span>
+                <span>14:00</span>
+                <span>15:00</span>
+                <span>16:00</span>
+                <span>17:00</span>
+                <span>18:00</span>
+                <span>19:00</span>
+                <span>20:00</span>
+                <span>21:00</span>
+                <span>22:00</span>
+                <span>23:00</span>
+                <span>0:00</span>
+                <span>1:00</span>
+                <span>2:00</span>
+                <span>3:00</span>
+                <span>4:00</span>
+                <span>5:00</span>
+                <span>6:00</span>
+        </div>
+        <!-- <div class="chart-row chart-lines">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div> -->
+        </div>
+    <div class="container">
+    <div class="lines">
+        <ng-container *ngFor="let type of types">
+        
+        
+    <!-- <ng-container *ngFor="let type of types"> -->
         <!-- <div class="chart-row"> -->
             <ng-container *ngFor='let nurse of schedule'>
                 <ng-container *ngIf="nurse.shift_assigned!='NA'">
+                    
                     <ng-container *ngIf='type.type==checkType(nurse.rn_id)'>
-                        <div class="chart-row">
-                        <div class="chart-row-item" [style.background-color]="getColor(checkType(nurse.rn_id))" style='color:white'>{{type.type}}</div>
-                            <ul class="chart-row-bars">
-                                <li class="chart-li-item"[style.background-color]="getColor(checkType(nurse.rn_id))"[style.grid-column]="styleShift(nurse.shift_assigned)" style='color:white'>{{nurse.rn_id}}</li>
-                            </ul>
-                        </div>
+                        
+                        <ng-container *ngFor="let number of startsArray">
+                            <ng-container *ngIf='number==getShiftStart(nurse.shift_assigned)'>
+                                <div class="chart-row">
+                                    <div class="chart-row-item" [style.background-color]="getColor(checkType(nurse.rn_id))" style='color:white'>{{type.type}}</div>
+                                    <div class="chart-row chart-lines">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                        <ul class="chart-row-bars">
+                                            <li class="chart-li-item"[style.background-color]="getColor(checkType(nurse.rn_id))"[style.grid-column]="styleShift(nurse.shift_assigned)" style='color:white'>
+                                                {{nurse.rn_id+ " " + " " + " " + nurse.shift_assigned}}
+                                            </li>
+                                            
+                                        </ul>
+                                </div>
+                                
+                            </ng-container>
+                        </ng-container>
                     </ng-container>
                 </ng-container>
             </ng-container>
-        <!-- </div> -->
+    </ng-container>
+</div>
+    </div>
     
