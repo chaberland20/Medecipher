@@ -124,9 +124,7 @@ export class GanntChartComponent implements OnInit {
     var end = start + length
     return String(start) + '/' + String(end)
   }
-  
 
-  public date: Date = new Date(Date.now());
 
   constructor(private http: HttpClient) {
   }
