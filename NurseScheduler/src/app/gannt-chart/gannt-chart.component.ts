@@ -31,7 +31,6 @@ export class GanntChartComponent implements OnInit {
   
   @Input() childMessage: any | undefined;
   ngOnChanges(changes: any){
-    //this.updateSchedule(new NurseScheduleService(this.http), this.childMessage);
     this.ngOnInit()
   }
 
@@ -125,7 +124,7 @@ export class GanntChartComponent implements OnInit {
     return String(start) + '/' + String(end)
   }
   
- 
+
   public date: Date = new Date(Date.now());
 
   constructor(private http: HttpClient) {
@@ -135,9 +134,10 @@ export class GanntChartComponent implements OnInit {
     for (let i: number = 1; i < 25; i++) {
       this.startsArray[i] = i;
     }
+    console.log(this.startsArray)
     let sched = new NurseScheduleService(this.http)
     let string_date = (this.childMessage.getMonth()+1)+'/'+this.childMessage.getDate()+'/2020'; // because schedule is from 2020, and not current year of 2021
-    if (this.childMessage.getDate() >= 14){   // because we don't have the csv for anything past Nov. 14th, 2020
+    if (this.childMessage.getDate() >= 14 || this.childMessage.getMonth() > 10){   // because we don't have the csv for anything past Nov. 14th, 2020
       string_date = ('11/14/2020')
     }
     this.schedule = sched.getSched(string_date)
