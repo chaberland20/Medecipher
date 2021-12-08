@@ -45,6 +45,8 @@ Where the add and delete shift buttons are created. They use the nurse-dropdown 
 
 ## Calendar component
 
+Where the calendar is generated, with the today's current date pre-selected. Whenever a new date is selected, this component sends that data to the parent component, for other components usage.
+
 ## Gannt-Chart component
 
 ## Nurse-Dropdown component

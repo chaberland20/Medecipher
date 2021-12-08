@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-week-copy',
   templateUrl: './week-copy.component.html',
@@ -19,7 +18,7 @@ export class WeekCopyComponent implements OnInit {
   /* Takes calendar selected date and finds previous Sunday */
   getSunday() {
     var weekOf: Date = new Date();
-    weekOf.setDate(this.today.getDate() - (this.today.getDate() + 7) % 7);
+    weekOf.setDate((this.today.getDate() - this.today.getDay()));
     return weekOf;
   }
 
