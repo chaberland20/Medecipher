@@ -12,7 +12,9 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `ng generate component component-name` to generate a new component.
+This command can be simplified to `ng g c component-name`.
+You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
@@ -29,3 +31,30 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+
+
+# Code Structure
+
+The overall structure of this project can be found in the /Documentation folder as 'uml.png'.
+
+## Button component
+
+Where the add and delete shift buttons are created. They use the nurse-dropdown component to display a pop-up with several dropdown menus.
+
+## Calendar component
+
+## Gannt-Chart component
+
+## Nurse-Dropdown component
+
+Where popups are created for when the add shift button is clicked.
+
+## Sidebar component
+
+Helper component that organizes button, warnings-table, and week-copy components into one place.
+
+## Warnings-Table component
+
+## Week-Copy component
