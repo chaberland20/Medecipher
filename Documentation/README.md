@@ -35,15 +35,14 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 
-
-
-## Code Structure
+# Code Structure
 
 The overall structure of this project can be found in the /Documentation folder as 'uml.png'.
 
+## Button component
 
-# Button component
+Where the add and delete shift buttons are created. They use the nurse-dropdown component to display a pop-up with several dropdown menus.
 
-The 'button' component is where the add and delete shift buttons are created. They use the nurse-dropdown
-component to display a pop-up with several dropdown menus.
+## Nurse-Dropdown component
 
+Where popups are created for when the add shift button is clicked.
