@@ -14,8 +14,8 @@
 
 .button2{
     grid-row: 1;
-    grid-column: 2 / 5;
-    padding-left: 125px;
+    grid-column: 2 / 5;   /* had to fidget with grid-column and padding-left to */
+    padding-left: 125px;  /* get the buttons to stay side by side */
     display: inline;
     position: absolute;
 }

@@ -10,10 +10,12 @@ import { HttpClient } from '@angular/common/http';
 
 export class NurseDropdownComponent implements OnInit {
 
+  // variables to store the options chosen from the dropdown
   selectedType: string = "";
   selectedShift: string = "";
   selectedId: string = "";
   
+  // used for processing .csv file
   currentRun: string = "";
   nurseIds: string[] = [];
   shiftTypes: string[] = [];
@@ -21,19 +23,27 @@ export class NurseDropdownComponent implements OnInit {
   
 
   constructor (private http: HttpClient) {
+
+    // this allows us to read in the .csv data to get the current run
+    // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+    // NOTE: this should be done through the nurse-schedule.service.ts, but  *
+    //       we weren't able to get it functioning in time; this should only *
+    //       be a temporary solution                                         *
+    // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
     this.http.get('assets/Nurse_Shifts.csv',
     {responseType: 'text'})
     .subscribe(
       data => {
         let csvToRowArray = data.split("\n");
         let row = csvToRowArray[1].split(",");  // get run_id from first nurse object, index 1 to ignore .csv header row
-        this.currentRun = row[0];
+        this.currentRun = row[0];               // save the id of the current run
     },
       error => {
           console.log(error);
       }
     );
    }
+
 
   // load data from .csv file on instantiation
   ngOnInit(): void {
@@ -83,15 +93,16 @@ export class NurseDropdownComponent implements OnInit {
   // writes a shift to 'Nurse_Shifts.csv'
   writeShift(id: string, shift: string) {
     var date = new Date();
-    date.setDate(this.today.getDate());
+    date.setDate(this.today.getDate());  // make date data match the same format as the .csv file
+    
+    // currently, this only writes relevant data to the console
+    // all information printed in this log statement should go to the .csv file
     console.log("adding the following to the schedule:", "\nRun_ID - ", this.currentRun, "\nDate - ", this.rewriteDate(date), "\nRN_ID - ", id, "\nShift_Assigned - ", shift)
   }
 
   // configures a date to make it human-readable
   rewriteDate(date: Date) {
     var oldDate = date.toString()
-    console.log("string:", oldDate)
-    var newDate = new String;
     var month = new String;
 
     switch (oldDate.substring(4, 7)){
@@ -134,6 +145,7 @@ export class NurseDropdownComponent implements OnInit {
 
     var day = oldDate.substring(8, 10)
     var year = oldDate.substring(11, 15)
+    var newDate = new String;
     newDate = month + "/" + day + "/" + year
     return newDate;
   }
@@ -141,6 +153,13 @@ export class NurseDropdownComponent implements OnInit {
 
   // returns list of preexisting shifts (no duplicates)
   getShiftTypes() {
+
+    // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+    // NOTE: this should be done through the nurse-schedule.service.ts, but  *
+    //       we weren't able to get it functioning in time; this should only *
+    //       be a temporary solution                                         *
+    // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
   // read .csv
   this.http.get('assets/Nurse_Shifts.csv',
   {responseType: 'text'})
@@ -188,7 +207,9 @@ export class NurseDropdownComponent implements OnInit {
 
 }
 
-
+// this class is a repeat from nurse-schedule.service.ts
+// should be deleted after getShiftTypes() and the constructor()
+// get data from nurse-schedule.service.ts instead
 export class NurseSched{
   run_id: string;
   date: string;
@@ -203,6 +224,7 @@ export class NurseSched{
   }
 }
 
+// helper class for organizeShift()
 export class shiftData{
   startTime: number;
   duration: number;

@@ -1,22 +1,21 @@
-/* Properties that are the same for each dropdown */
+/* properties that are the same for each dropdown */
   .select {
     font-size: 15px;
     padding: 6px 6px 6px 6px;
     text-align: center;
   }
   
-  /* Nurse select properties */
+  /* nurse id dropdown properties */
   #id-dropdown {
     width: 190px;
   }
 
-  /* Time select properties */
+  /* shift time/nurse type dropdown properties */
   #time-dropdown, #type-dropdown {
     width: 125px;
   }
 
-
-/* Button styling */
+/* button styling */
   .confirm {
     border: 4px;
     line-height: 2.5;
@@ -38,10 +37,12 @@
                 inset -2px -2px 3px rgba(0, 0, 0, .6);   
 }
 
+/* button styling when hovering over with mouse */
 .confirm:hover {
     background-color: #0c588b;
 }
 
+/* button styling when button is clicked */
 .confirm:active {
     box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
                 inset 2px 2px 3px rgba(0, 0, 0, .6);

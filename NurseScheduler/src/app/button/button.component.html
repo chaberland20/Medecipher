@@ -1,5 +1,6 @@
 <div class="button_container">
 
+    <!-- addShiftModal - Popup that displays when 'add shift' button is clicked -->
     <div id="addShiftModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="addShiftModal.style.display='none'">&times;</span>
@@ -8,12 +9,14 @@
         </div>
     </div>
 
+    <!-- add shift button -->
     <div class="button1">
         <button class="addShiftButton" type="button" onclick="addShiftModal.style.display = 'block'">
             Add Shift
         </button>
     </div>  
 
+    <!-- delShiftModal - Popup that displays when 'delete shift' button is clicked -->
     <div id="delShiftModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="delShiftModal.style.display = 'none'">&times;</span>
@@ -21,6 +24,7 @@
         </div>
     </div>
 
+    <!-- delete shift button -->
     <div class="button2">
         <button class="delShiftButton" type="button" onclick="delShiftModal.style.display = 'block'">
             Delete Shift
