@@ -31,19 +31,3 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-
-
-
-
-
-
-## Code Structure
-
-The overall structure of this project can be found in the /Documentation folder as 'uml.png'.
-
-
-# Button component
-
-The 'button' component is where the add and delete shift buttons are created. They use the nurse-dropdown
-component to display a pop-up with several dropdown menus.
-
