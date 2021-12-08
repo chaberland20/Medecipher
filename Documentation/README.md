@@ -43,6 +43,18 @@ The overall structure of this project can be found in the /Documentation folder 
 
 Where the add and delete shift buttons are created. They use the nurse-dropdown component to display a pop-up with several dropdown menus.
 
+## Calendar component
+
+## Gannt-Chart component
+
 ## Nurse-Dropdown component
 
 Where popups are created for when the add shift button is clicked.
+
+## Sidebar component
+
+Helper component that organizes button, warnings-table, and week-copy components into one place.
+
+## Warnings-Table component
+
+## Week-Copy component
