@@ -24,6 +24,7 @@ export class AppComponent implements OnInit{
   title = 'NurseScheduler';
   date= new Date(Date.now());
   
+  //anytime the date changes from the calendar component, the data is recieved to this parent component
   receiveMessage($event:any){
     this.date = $event;
     this.parentMessage = this.date;

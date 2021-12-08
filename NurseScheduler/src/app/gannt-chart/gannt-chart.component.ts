@@ -29,6 +29,7 @@ export class GanntChartComponent implements OnInit {
 
   }
   
+  //triggers when the date is changed
   @Input() childMessage: any | undefined;
   ngOnChanges(changes: any){
     this.ngOnInit()
@@ -130,14 +131,15 @@ export class GanntChartComponent implements OnInit {
   constructor(private http: HttpClient) {
   }
 
+  //triggered when page is started up and when the date is changed on the calendar component
   ngOnInit(){
     for (let i: number = 1; i < 25; i++) {
       this.startsArray[i] = i;
     }
     console.log(this.startsArray)
     let sched = new NurseScheduleService(this.http)
-    let string_date = (this.childMessage.getMonth()+1)+'/'+this.childMessage.getDate()+'/2020'; // because schedule is from 2020, and not current year of 2021
-    if (this.childMessage.getDate() >= 14 || this.childMessage.getMonth() > 10){   // because we don't have the csv for anything past Nov. 14th, 2020
+    let string_date = (this.childMessage.getMonth()+1)+'/'+this.childMessage.getDate()+'/2020'; // because csv schedule is from 2020, and not current year of 2021
+    if (this.childMessage.getDate() >= 14 || this.childMessage.getMonth() > 10){   // because we don't have the csv for anything past Nov. 14th, 2020 so hard code all days past Nov. 14th to displays Nov. 14th's schedule
       string_date = ('11/14/2020')
     }
     this.schedule = sched.getSched(string_date)
