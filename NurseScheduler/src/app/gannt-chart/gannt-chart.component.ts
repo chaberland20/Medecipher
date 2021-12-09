@@ -10,14 +10,14 @@ import { NurseSched, NurseScheduleService } from '../nurse-schedule.service';
 })
 
 export class GanntChartComponent implements OnInit {
+  // an array of available nurse types
   types= [
     { type: 'CRN' },
     { type:'DDRN'},
     { type: 'EDRN' }
     ]
   schedule: NurseSched[] = []
-  testArray: NurseSched[] = []
-  shiftArray: NurseSched[] =[]
+  shiftArray: NurseSched[] = []
   startsArray: Number[] = []
   
   // return type of nurse based on id
@@ -35,6 +35,7 @@ export class GanntChartComponent implements OnInit {
     this.ngOnInit()
   }
 
+  // function to retrun color associated with nursetype to appropriately color the shifts added
   getColor(nurseType: string) { (2)
     switch (nurseType) {
       case "CRN":
@@ -48,19 +49,8 @@ export class GanntChartComponent implements OnInit {
     }
   }
 
-  getType(type: string){
-    switch (type){
-      case "CRN":
-        return "CRN";
-      case "DDRN":
-        return "DDRN";
-      case "EDRN":
-        return "EDRN";
-      default:
-        return 'purple';
-    }
-  }
   
+  // function that takes the string start time and return a number that represents a start location to show shift on gannt-chart
   getShiftStart(nurseShift: string){
     var start = nurseShift.substring(0, 4)
     switch (start){
@@ -118,6 +108,7 @@ export class GanntChartComponent implements OnInit {
   }
 
 
+  // function that takes in a nurese shift string and gives a range an dlocation for teh shift on the gannt-chart
   styleShift(nurseShift: string){
     var start: number = this.getShiftStart(nurseShift)
     var length: number = Number(nurseShift.substring(5,7)) 
@@ -131,20 +122,21 @@ export class GanntChartComponent implements OnInit {
 
   //triggered when page is started up and when the date is changed on the calendar component
   ngOnInit(){
+    // build array of starting locations for shift
     for (let i: number = 1; i < 25; i++) {
       this.startsArray[i] = i;
     }
     console.log(this.startsArray)
-    let sched = new NurseScheduleService(this.http)
+    let sched = new NurseScheduleService(this.http) //instantiate a schedule service
     let string_date = (this.childMessage.getMonth()+1)+'/'+this.childMessage.getDate()+'/2020'; // because csv schedule is from 2020, and not current year of 2021
     if (this.childMessage.getDate() >= 14 || this.childMessage.getMonth() > 10){   // because we don't have the csv for anything past Nov. 14th, 2020 so hard code all days past Nov. 14th to displays Nov. 14th's schedule
       string_date = ('11/14/2020')
     }
-    this.schedule = sched.getSched(string_date)
-    
+    this.schedule = sched.getSched(string_date) // get sched reads dat from schedule service and populates a schedule array for specific data
+    // array of shifts
     for (let index = 1; index < sched.userArray.length-1; index++){
       let row = sched.userArray[index]
-      this.testArray.push(row)
+      this.shiftArray.push(row)
     }
 
   }

@@ -1,25 +1,20 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;    
-  }
+/* Overflow property for outter div encasing the entire gannt-chart component */
   .outter {
     overflow: hidden;
   }
+
+  /* properties for srollable part of gannt chart */
   .container {
     position: relative;
     width: 100%;
-      /* max-width: 1500px;
-      min-width: 650px; */
-      margin: 0 auto;
-      /* padding: 10px; */
-      height: 700px;
-      overflow-y: auto;
+    margin: 0 auto;
+    height: 700px;
+    overflow-y: auto;
   }
+
+  /* Styling of heading bar that displays the selected date */
   .date-heading {
     background-color: #e9dfd4;
-    /* background-color: #F6FFE6;  */
-
     display: flex; 
     justify-content: center;
     border-top: 2px solid #4f4a41;
@@ -31,22 +26,20 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size:x-large;
   }
-  .chart {
-      display: grid;
-      border-left: 2px solid #4f4a41;
-      /* border-right: 2px solid #4f4a41; */
-      border-bottom: 2px solid #4f4a41;
-      position: relative;
-      /* overflow: hidden;   */
-  }
+
+/* Styling what the rows of the gannt-chart look like */
   .chart-row {
     display: grid;      
     grid-template-columns: 50px 1fr;
     background-color: #DED6C8;
   }
+
+  /* Alternate the background colors of the chart rows */
   .chart-row:nth-child(odd) {
     background-color: #FAF2E4;
   }
+  
+  /* Stylings for the part of gannt chart that shows time periods for scheduling */
   .chart-period {
     color:  #fff;
     background-color:  #708090 !important;
@@ -55,61 +48,55 @@
     grid-template-columns: 50px repeat(24, 1fr);
     width: 99%;
   }
+
+  /* Properties for lines that divide the gannt-chart into time periods */
   .chart-lines {
     position: absolute;
-    height: 8%;
+    height: 8.5%;
     width: 100%;
     background-color: transparent;
     grid-template-columns: 50px repeat(24, 1fr);
   }
-  .lines {
-    overflow:hidden;
-  }
-  .chart-period{
-    border-right: 1px solid;
-  }
+
+  /* Stylings for each individual time period in the time period heading */
   .chart-period > span { 
     border-right: 2px solid #4f4a41;
-
     text-align: center;
     font-size: 13px;
     align-self: center;
     font-weight: bold;
     padding: 15px 0;    
   }
+
+  /* Properties that define how the time period lines over the gannt-chart look */
   .chart-lines > span {
     display: block;
     border-right: 1px solid rgba(0, 0, 0, 0.3);
   }
+
+  /* Stylings for left side of chart rows that label the nurse type being scheduled in gannt-chart */
   .chart-row-item {
-    background-color:#808080;
     border: 1px solid  #000;
-    border-top: 0;
-    border-left: 0;
     padding: 20px 0;
     font-size: 15px;
     font-weight: bold;
     text-align: center;
   } 
+
+  /* Styling for the color-coded bars that 'hold' a nurse shift in the gannt-chart */
   .chart-row-bars {
     list-style: none;
     display: grid;
     padding: 15px 0;
     margin: 0;
-    border:1px solid black;
     grid-template-columns: repeat(24, 1fr);
     grid-gap: 10px 0;
     border-bottom: 1px solid  #000;
   }
-  .chart-row-bars span {
-    position: fixed;
-    border: 1px dotted red;
-    height:100%;
-    /* z-index: 999; */
-  }
+  
+  /* Styling the shift entries for nurses in gannt-chart */
   li {
     font-weight: 450;
-    /* text-align: center; */
     font-size: 15px;
     min-height: 15px;
     background-color: #708090;
@@ -120,6 +107,8 @@
     cursor: pointer;
     border-radius: 15px;
   }
+
+  /* Stylingt the text for shifts */
   .chart-li-item{
     text-align: center;
   }

@@ -1,10 +1,11 @@
     <div class='outter'>
-
+        <!-- Top most heading heading holding selected date -->
         <div class=date-heading>
             {{childMessage | date: 'longDate'}}
         </div>
-        <div class="chart">
+        <!-- second part of gannt-chart heading that divides gannt-chart into time periods -->
         <div class="chart-row chart-period">
+            <!-- Inputing actual times for the time periods in heading -->
             <div class="chart-row-item"></div>
                 <span>7:00</span>
                 <span>8:00</span>
@@ -31,49 +32,22 @@
                 <span>5:00</span>
                 <span>6:00</span>
         </div>
-        <!-- <div class="chart-row chart-lines">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div> -->
-        </div>
+        <!-- Container that holds the actual schedule data in the gannt-chart -->
     <div class="container">
+        <!-- lines are the time period lines that run down the gannt-chart dividing it by period -->
     <div class="lines">
+        <!-- ng logic that populates gannt chart with schedule data that has been read from csv -->
         <ng-container *ngFor="let type of types">
-        
-        
-    <!-- <ng-container *ngFor="let type of types"> -->
-        <!-- <div class="chart-row"> -->
             <ng-container *ngFor='let nurse of schedule'>
                 <ng-container *ngIf="nurse.shift_assigned!='NA'">
-                    
                     <ng-container *ngIf='type.type==checkType(nurse.rn_id)'>
-                        
                         <ng-container *ngFor="let number of startsArray">
                             <ng-container *ngIf='number==getShiftStart(nurse.shift_assigned)'>
+                                <!-- class for the rows that hold each shift's data -->
                                 <div class="chart-row">
+                                    <!-- The color coded tabs that signal what type of nurse is being scheduled in the row -->
                                     <div class="chart-row-item" [style.background-color]="getColor(checkType(nurse.rn_id))" style='color:white'>{{type.type}}</div>
+                                    <!-- divide each row into periods with the lines -->
                                     <div class="chart-row chart-lines">
                                         <span></span>
                                         <span></span>
@@ -100,6 +74,7 @@
                                         <span></span>
                                         <span></span>
                                     </div>
+                                    <!-- the color coded shifts assigned to each row -->
                                         <ul class="chart-row-bars">
                                             <li class="chart-li-item"[style.background-color]="getColor(checkType(nurse.rn_id))"[style.grid-column]="styleShift(nurse.shift_assigned)" style='color:white'>
                                                 {{nurse.rn_id}}
@@ -107,7 +82,6 @@
                                             
                                         </ul>
                                 </div>
-                                
                             </ng-container>
                         </ng-container>
                     </ng-container>
@@ -115,5 +89,5 @@
             </ng-container>
     </ng-container>
 </div>
-    </div>
+</div>
     

@@ -159,6 +159,7 @@ export class NurseScheduleService {
     }
   }
 
+  //defines individual shift objects
   export class NurseSched{
     run_id: string;
     date: string;
