@@ -49,6 +49,8 @@ Where the calendar is generated, with the today's current date pre-selected. Whe
 
 ## Gannt-Chart component
 
+Where the data is recieved to populate the schedule.
+
 ## Nurse-Dropdown component
 
 Where popups are created for when the add shift button is clicked.
