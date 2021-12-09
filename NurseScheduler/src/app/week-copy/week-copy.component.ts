@@ -13,7 +13,6 @@ export class WeekCopyComponent implements OnInit {
 
   }
 
-  /* today = selected date */
   @Input('childMessage') today: any | undefined; /* date gets passed from calendar to app to sidebar to here */
 
   /* Takes calendar selected date and finds previous Sunday */
@@ -23,6 +22,7 @@ export class WeekCopyComponent implements OnInit {
     return weekOf;
   }
 
+  /* variable to hold the value entered in the input box for the copy schedule button */
   value = null;
   onEnter(value: any) { this.value = value; }
 }

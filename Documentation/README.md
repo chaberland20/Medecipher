@@ -59,4 +59,8 @@ Helper component that organizes button, warnings-table, and week-copy components
 
 ## Warnings-Table component
 
+Where the nurse warnings are displayed.
+
 ## Week-Copy component
+
+Where the "Week Of:" display and the copy schedule button are handled.

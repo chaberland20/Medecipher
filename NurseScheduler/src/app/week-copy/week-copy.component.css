@@ -1,3 +1,4 @@
+/* containter to package week-of and copy-week */
 .container {
     background-color: whitesmoke;
     display: grid;
@@ -21,10 +22,12 @@
     text-align: center;
 }
 
+/* used for "Week Of:" */
 h1 {
     font-size: .85rem;
 }
 
+/* used to display the date in bold */
 b {
     font-size: 1.5rem;
 }

@@ -3,6 +3,7 @@ table {
 
 }
 
+/* used for overall table and warning names */
 table, th {
     background-color: whitesmoke;
     border: 1px solid black;
@@ -10,6 +11,7 @@ table, th {
     width: 246px;
 }
 
+/* used for the warning values */
 td {
     border: 1px solid black;
     padding: 5px;

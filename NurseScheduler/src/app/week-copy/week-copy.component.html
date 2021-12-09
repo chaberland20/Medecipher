@@ -1,19 +1,23 @@
 <div class="container">
 
+    <!-- the week of display -->
     <div class="week-of">
         <h1 >Week of:</h1>
         <b>{{getSunday() | date: 'M/d'}}</b>
     </div>
 
+    <!-- the popup when you click the copy schedule button -->
     <div id="copyModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="copyModal.style.display = 'none'">&times;</span>
             <p>How many weeks forward would you like to copy the current week's schedule?</p>
+            <!-- creates an input box that saves the value when pressing enter -->
             <input #box (keyup.enter)="onEnter(box.value)">
-            <p>{{value}}</p> <!-- can remove this line later, keep for debugging -->
+            <p>{{value}}</p> <!-- displays user input to make sure its working -->
         </div>
     </div>
 
+    <!-- the copy schedule button -->
     <div class="copy-week">
         <button class="copy-week" type="button" onclick="copyModal.style.display = 'block'">
             Copy<br>
